@@ -1,9 +1,10 @@
 ## Salesforce Lightning Design System
 
-- [] Why don't icons appear on the canvas or in live preview
+A repository to hold components from Salesforce Lightning Design System.
 
 ### Todo
 
+- Why don't icons appear on the canvas or in live preview
 - Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured)
 - Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured)
 - How can I make carousel.tsx more user friendly instead of hardcoding the items?
