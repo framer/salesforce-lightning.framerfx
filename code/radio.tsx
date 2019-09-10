@@ -18,7 +18,7 @@ const InnerRadio = props => {
 export const Radio = withHOC(InnerRadio);
 
 Radio.defaultProps = {
-  width: 100,
+  width: 130,
   height: 24
 };
 

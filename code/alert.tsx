@@ -10,11 +10,6 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-type Props = {
-  height: number;
-  width: number;
-};
-
 const InnerAlert = props => {
   return (
     <System.Alert
