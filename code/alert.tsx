@@ -23,8 +23,8 @@ const InnerAlert = props => {
           <System.Icon
             category={props.category}
             name={props.name}
-            size="large"
-            assistiveText={{ label: "My Account" }}
+            size={props.size}
+            assistiveText={{ label: props.assistiveText }}
           />
         ) : null
       }

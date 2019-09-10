@@ -30,7 +30,7 @@
               "headingLink" : "More information",
               "icon" : true,
               "name" : "user",
-              "size" : "medium",
+              "size" : "xx-small",
               "variant" : "info"
             },
             "codeOverrideEnabled" : false,
@@ -101,7 +101,7 @@
         "isExternalMaster" : null,
         "isMaster" : false,
         "isTarget" : false,
-        "left" : -647,
+        "left" : -661,
         "locked" : false,
         "name" : null,
         "navigationTarget" : null,
@@ -122,7 +122,7 @@
         "replicaInfo" : null,
         "right" : null,
         "rotation" : 0,
-        "top" : -2839,
+        "top" : -3225,
         "visible" : true,
         "width" : 1152,
         "widthType" : 0
