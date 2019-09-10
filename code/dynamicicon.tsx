@@ -48,11 +48,13 @@ addPropertyControls(DynamicIcon, {
     options: ["positive", "negative"],
     optionTitles: ["Positive", "Negative"]
   },
-  // strengthLevel: {
-  //   title: "StrengthLevel",
-  //   defaultValue: false,
-  //   type: ControlType.Boolean
-  // },
+  strengthLevel: {
+    title: "StrengthLevel",
+    defaultValue: "0",
+    type: ControlType.Enum,
+    options: ["-3", "-2", "-1", "0", "1", "2", "3"],
+    optionTitles: ["-3", "-2", "-1", "0", "1", "2", "3"]
+  },
   trendDirection: {
     title: "TrendDirection",
     defaultValue: "neutral",
