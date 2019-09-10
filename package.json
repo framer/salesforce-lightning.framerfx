@@ -15,6 +15,7 @@
 	"dependencies": {
 		"@framerjs/component-importer": "^0.0.23",
 		"@salesforce-ux/design-system": "^2.9.4",
-		"@salesforce/design-system-react": "^0.10.11"
+		"@salesforce/design-system-react": "^0.10.11",
+		"moment": "^2.24.0"
 	}
 }
