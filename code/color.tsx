@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -9,52 +9,29 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerColor: React.SFC = props => {
-  return <System.Color {...props} style={style} />;
+const InnerColor = props => {
+  return (
+    <System.ColorPicker
+      {...props}
+      style={style}
+      labels={{ label: props.label }}
+      // errorText={props.error && props.errorText}
+      // errorTextWorkingColor={props.error && props.errorTextWorkingColor}
+      defaultSelectedTab={"swatches"}
+    />
+  );
 };
 
 export const Color = withHOC(InnerColor);
 
 Color.defaultProps = {
   width: 150,
-  height: 50
+  height: 55
 };
 
 addPropertyControls(Color, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  classNameMenu: {
-    title: "ClassNameMenu",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
   disabled: {
     title: "Disabled",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  errorText: {
-    title: "ErrorText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  errorTextWorkingColor: {
-    title: "ErrorTextWorkingColor",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  events: { title: "Events", defaultValue: false, type: ControlType.Boolean },
-  hasStaticAlignment: {
-    title: "HasStaticAlignment",
     defaultValue: false,
     type: ControlType.Boolean
   },
@@ -63,28 +40,24 @@ addPropertyControls(Color, {
     defaultValue: false,
     type: ControlType.Boolean
   },
-  isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean },
-  labels: { title: "Labels", defaultValue: false, type: ControlType.Boolean },
+  label: {
+    title: "Label",
+    defaultValue: "Choose Color",
+    type: ControlType.String
+  },
   menuPosition: {
     title: "MenuPosition",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "absolute",
+    options: ["absolute", "overflowBoundaryElement", "relateive"],
+    optionsTitles: ["absolute", "overflowBoundaryElement", "relateive"],
+    type: ControlType.Enum
   },
   swatchColors: {
-    title: "SwatchColors",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  defaultSelectedTab: {
-    title: "DefaultSelectedTab",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean },
-  value: { title: "Value", defaultValue: false, type: ControlType.Boolean },
-  valueWorking: {
-    title: "ValueWorking",
-    defaultValue: false,
-    type: ControlType.Boolean
+    type: ControlType.Array,
+    title: "Swatch Colors",
+    propertyControl: {
+      type: ControlType.Color
+    },
+    defaultValue: ["#e3abec", "#c2dbf7", "#9fd6ff"]
   }
 });
