@@ -35,3 +35,4 @@
 - Removed Setup Assistant for first pass, composed of multiple components
 - Removed Split View from first pass, composed of many components
 - Removed Trial Bars from first pass, composed of many components
+- Removed Visual Picker from first pass, composed of many components
