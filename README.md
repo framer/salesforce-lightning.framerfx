@@ -15,6 +15,7 @@ Todo:
 - Fix sizing of files.tsx
 - Add icon support for input
 - Can I override the default props for Icons if I import them? I.e files.tsx to have a different default icon
+- Need to fix sizing of Icon in Pill component
 
 Notes:
 
