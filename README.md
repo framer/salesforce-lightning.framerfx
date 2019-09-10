@@ -1,12 +1,9 @@
 ## Salesforce Lightning Design System
 
+- [] Why don't icons appear on the canvas or in live preview
+
 ### Todo
 
-- Does app.tsx (App Header) belong?
-
-- Why don't icons appear on the canvas or in live preview
-
-- Does card.tsx make sense? Look into attaching elements as children
 - Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured)
 - Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured)
 - How can I make carousel.tsx more user friendly instead of hardcoding the items?
@@ -24,6 +21,11 @@
 - How can I make tabs more user friendly?
 - Why doesn't tooltip open on hover
 - How can I make verticalnavigation more user friendly + add better content (more dynamic)?
+
+### Questions
+
+- Does app.tsx (App Header) belong?
+- Does card.tsx make sense? Look into attaching elements as children
 
 ### Notes
 
