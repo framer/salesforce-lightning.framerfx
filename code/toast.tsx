@@ -1,53 +1,67 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
+import { createIconPropertyControls } from "./icon";
 
 const style: React.CSSProperties = {
   width: "100%",
   height: "100%"
 };
 
-const InnerToast: React.SFC = props => {
-  return <System.Toast {...props} style={style} />;
+const InnerToast = props => {
+  return (
+    <System.ToastContainer>
+      <System.Toast
+        {...props}
+        style={style}
+        labels={{
+          heading: props.heading,
+          details: props.details
+        }}
+        icon={
+          props.icon ? (
+            <System.Icon
+              category={props.category}
+              name={props.name}
+              size={props.size}
+              assistiveText={{ label: props.assistiveText }}
+            />
+          ) : null
+        }
+      />
+    </System.ToastContainer>
+  );
 };
 
 export const Toast = withHOC(InnerToast);
 
 Toast.defaultProps = {
-  width: 150,
-  height: 50
+  width: 900,
+  height: 40
 };
 
 addPropertyControls(Toast, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
+  heading: {
+    title: "Heading",
+    defaultValue:
+      "You've encountered some errors when trying to save edits to Samuel Smith.",
+    type: ControlType.String
   },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  duration: {
-    title: "Duration",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  labels: { title: "Labels", defaultValue: false, type: ControlType.Boolean },
-  onClickHeadingLink: {
-    title: "OnClickHeadingLink",
-    defaultValue: false,
-    type: ControlType.Boolean
+  details: {
+    title: "Details",
+    defaultValue:
+      "Here's some detail of what happened, being very descriptive and transparent.",
+    type: ControlType.String
   },
   icon: { title: "Icon", defaultValue: false, type: ControlType.Boolean },
-  onRequestClose: {
-    title: "OnRequestClose",
-    defaultValue: false,
-    type: ControlType.Boolean
+  variant: {
+    title: "Variant",
+    defaultValue: "info",
+    type: ControlType.Enum,
+    options: ["error", "info", "succes", "warning"],
+    optionTitles: ["Error", "Info", "Succes", "Warning"]
   },
-  style: { title: "Style", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean }
+  ...createIconPropertyControls(props => props.icon === false)
 });
