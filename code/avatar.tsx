@@ -9,33 +9,53 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerAvatar: React.SFC = props => {
-  return <System.Avatar {...props} style={style} />;
+const InnerAvatar = props => {
+  return (
+    <System.Avatar
+      {...props}
+      style={style}
+      assistiveText={{ icon: `${props.variant} Icon Avatar` }}
+    />
+  );
 };
 
 export const Avatar = withHOC(InnerAvatar);
 
 Avatar.defaultProps = {
-  width: 150,
-  height: 50
+  width: 32,
+  height: 32
 };
 
 addPropertyControls(Avatar, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  imgAlt: { title: "ImgAlt", defaultValue: false, type: ControlType.Boolean },
-  imgSrc: { title: "ImgSrc", defaultValue: false, type: ControlType.Boolean },
+  imgSrc: { title: "Img Src", type: ControlType.String },
   initials: {
     title: "Initials",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "SF",
+    type: ControlType.String
   },
   inverse: { title: "Inverse", defaultValue: false, type: ControlType.Boolean },
-  label: { title: "Label", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean },
-  size: { title: "Size", defaultValue: false, type: ControlType.Boolean },
-  title: { title: "Title", defaultValue: false, type: ControlType.Boolean }
+  label: {
+    title: "Label",
+    defaultValue: "Salesforce Design",
+    type: ControlType.String
+  },
+  variant: {
+    title: "Variant",
+    defaultValue: "user",
+    options: ["user", "entity"],
+    optionTitles: ["User", "Entity"],
+    type: ControlType.Enum
+  },
+  size: {
+    type: ControlType.Enum,
+    title: "Size",
+    options: ["xx-small", "x-small", "small", "medium", "large"],
+    optionTitles: ["XX-Small", "X-Small", "Small", "Medium", "Large"],
+    defaultValue: "medium"
+  },
+  title: {
+    title: "Title",
+    defaultValue: "User Avatar",
+    type: ControlType.String
+  }
 });
