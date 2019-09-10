@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -9,8 +9,18 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerButton: React.SFC = props => {
-  return <System.Button {...props} style={style} />;
+const InnerButton = props => {
+  return (
+    <System.Button
+      {...props}
+      style={style}
+      iconCategory={props.icon && props.iconCategory}
+      iconName={props.icon && props.iconName}
+      iconPosition={props.icon && props.iconPosition}
+      iconSize={props.icon && props.iconSize}
+      iconVariant={props.icon && props.iconVariant}
+    />
+  );
 };
 
 export const Button = withHOC(InnerButton);
@@ -21,112 +31,112 @@ Button.defaultProps = {
 };
 
 addPropertyControls(Button, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  buttonRef: {
-    title: "ButtonRef",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   disabled: {
     title: "Disabled",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  hint: { title: "Hint", defaultValue: false, type: ControlType.Boolean },
+  icon: {
+    type: ControlType.Boolean,
+    title: "Icon",
+    enabledTitle: "True",
+    disabledTitle: "False",
+    defaultValue: false
+  },
   iconCategory: {
     title: "IconCategory",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  iconClassName: {
-    title: "IconClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "utility",
+    type: ControlType.String,
+    hidden(props) {
+      return props.icon === false;
+    }
   },
   iconName: {
     title: "IconName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  iconPath: {
-    title: "IconPath",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "download",
+    type: ControlType.String,
+    hidden(props) {
+      return props.icon === false;
+    }
   },
   iconPosition: {
     title: "IconPosition",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "left",
+    type: ControlType.Enum,
+    options: ["left", "right"],
+    optionTitles: ["Left", "Right"],
+    hidden(props) {
+      return props.icon === false;
+    }
   },
   iconSize: {
-    title: "IconSize",
-    defaultValue: false,
-    type: ControlType.Boolean
+    title: "Size",
+    options: ["x-small", "small", "medium", "large"],
+    optionTitles: ["X-Small", "Small", "Medium", "Large"],
+    defaultValue: "medium",
+    type: ControlType.Enum,
+    hidden(props) {
+      return props.icon === false;
+    }
   },
   iconVariant: {
-    title: "IconVariant",
-    defaultValue: false,
-    type: ControlType.Boolean
+    title: "Icon Variant",
+    type: ControlType.Enum,
+    options: [
+      "bare",
+      "container",
+      "border",
+      "border-filled",
+      "brand",
+      "more",
+      "global-header"
+    ],
+    optionTitles: [
+      "bare",
+      "container",
+      "border",
+      "border-filled",
+      "brand",
+      "more",
+      "global-header"
+    ],
+    defaultValue: "bare",
+    hidden(props) {
+      return props.icon === false;
+    }
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
   inverse: { title: "Inverse", defaultValue: false, type: ControlType.Boolean },
-  label: { title: "Label", defaultValue: false, type: ControlType.Boolean },
-  onBlur: { title: "OnBlur", defaultValue: false, type: ControlType.Boolean },
-  onClick: { title: "OnClick", defaultValue: false, type: ControlType.Boolean },
-  onFocus: { title: "OnFocus", defaultValue: false, type: ControlType.Boolean },
-  onKeyDown: {
-    title: "OnKeyDown",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyPress: {
-    title: "OnKeyPress",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyUp: { title: "OnKeyUp", defaultValue: false, type: ControlType.Boolean },
-  onMouseDown: {
-    title: "OnMouseDown",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onMouseEnter: {
-    title: "OnMouseEnter",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onMouseLeave: {
-    title: "OnMouseLeave",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onMouseUp: {
-    title: "OnMouseUp",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
+  label: { title: "Label", defaultValue: "Click Me", type: ControlType.String },
   responsive: {
     title: "Responsive",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  tabIndex: {
-    title: "TabIndex",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  type: { title: "Type", defaultValue: false, type: ControlType.Boolean },
-  title: { title: "Title", defaultValue: false, type: ControlType.Boolean },
-  tooltip: { title: "Tooltip", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean },
-  style: { title: "Style", defaultValue: false, type: ControlType.Boolean }
+  variant: {
+    title: "Variant",
+    type: ControlType.Enum,
+    options: [
+      "base",
+      "link",
+      "neutral",
+      "brand",
+      "outline-brand",
+      "destructive",
+      "success",
+      "text-destructive",
+      "icon"
+    ],
+    optionTitles: [
+      "base",
+      "link",
+      "neutral",
+      "brand",
+      "outline-brand",
+      "destructive",
+      "success",
+      "text-destructive",
+      "icon"
+    ],
+    defaultValue: "neutral"
+  }
 });
