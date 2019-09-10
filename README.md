@@ -1,6 +1,6 @@
 ## Salesforce Lightning Design System
 
-### Todo:
+### Todo
 
 - Does app.tsx (App Header) belong?
 
@@ -20,12 +20,13 @@
 - Need to start Progress bar(s)
 - Visual picker for variant on radio?
 
-### Notes:
+### Notes
 
 - Removed Builder Header for first pass
 - Removed Filters for first pass
-- Removed Expression for first Pass
-- Removed Menu for first Pass
-- Removed Modal for first Pass
-- Removed Page Header for first Pass, composed of multiple components
-- Removed Panel for first Pass, composed of multiple components
+- Removed Expression for first pass
+- Removed Menu for first pass
+- Removed Modal for first pass
+- Removed Page Header for first pass, composed of multiple components
+- Removed Panel for first pass, composed of multiple components
+- Removed Setup Assistant for first pass, composed of multiple components
