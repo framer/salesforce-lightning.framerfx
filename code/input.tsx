@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -9,161 +9,101 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerInput: React.SFC = props => {
-  return <System.Input {...props} style={style} />;
+const InnerInput = props => {
+  return (
+    <System.Input
+      {...props}
+      style={style}
+      errorText={props.error && props.myErrorText}
+    />
+  );
 };
 
 export const Input = withHOC(InnerInput);
 
 Input.defaultProps = {
-  width: 150,
-  height: 50
+  width: 300,
+  height: 100
 };
 
 addPropertyControls(Input, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  autoComplete: {
-    title: "AutoComplete",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  children: {
-    title: "Children",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  defaultValue: {
-    title: "DefaultValue",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   disabled: {
     title: "Disabled",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  errorText: {
+  error: {
+    type: ControlType.Boolean,
+    title: "Error",
+    defaultValue: true,
+    enabledTitle: "True",
+    disabledTitle: "False"
+  },
+  myErrorText: {
     title: "ErrorText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  fieldLevelHelpTooltip: {
-    title: "FieldLevelHelpTooltip",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  fixedTextLeft: {
-    title: "FixedTextLeft",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  fixedTextRight: {
-    title: "FixedTextRight",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "Error Message",
+    type: ControlType.String,
+    hidden(props) {
+      return props.error === false;
+    }
   },
   hasSpinner: {
     title: "HasSpinner",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  iconLeft: {
-    title: "IconLeft",
-    defaultValue: false,
-    type: ControlType.Boolean
+  fixedTextLeft: {
+    type: ControlType.String,
+    title: "Left Text",
+    defaultValue: ""
   },
-  iconRight: {
-    title: "IconRight",
-    defaultValue: false,
-    type: ControlType.Boolean
+
+  fixedTextRight: {
+    type: ControlType.String,
+    title: "Right Text",
+    defaultValue: ""
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
+  // iconLeft: {
+  //   title: "IconLeft",
+  //   defaultValue: false,
+  //   type: ControlType.Boolean
+  // },
+  // iconRight: {
+  //   title: "IconRight",
+  //   defaultValue: false,
+  //   type: ControlType.Boolean
+  // },
   inlineHelpText: {
     title: "InlineHelpText",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "ex: (415) 111-2222",
+    type: ControlType.String
   },
-  inputRef: {
-    title: "InputRef",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  isStatic: {
-    title: "IsStatic",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  label: { title: "Label", defaultValue: false, type: ControlType.Boolean },
-  onBlur: { title: "OnBlur", defaultValue: false, type: ControlType.Boolean },
-  onChange: {
-    title: "OnChange",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onClick: { title: "OnClick", defaultValue: false, type: ControlType.Boolean },
-  onFocus: { title: "OnFocus", defaultValue: false, type: ControlType.Boolean },
-  onInput: { title: "OnInput", defaultValue: false, type: ControlType.Boolean },
-  onInvalid: {
-    title: "OnInvalid",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyDown: {
-    title: "OnKeyDown",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyPress: {
-    title: "OnKeyPress",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyUp: { title: "OnKeyUp", defaultValue: false, type: ControlType.Boolean },
-  onSelect: {
-    title: "OnSelect",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onSubmit: {
-    title: "OnSubmit",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
+  label: { title: "Label", defaultValue: "My Label", type: ControlType.String },
   placeholder: {
     title: "Placeholder",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "Type here...",
+    type: ControlType.String
   },
   minLength: {
     title: "MinLength",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  minValue: {
-    title: "MinValue",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "0",
+    type: ControlType.String
   },
   maxLength: {
     title: "MaxLength",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "30",
+    type: ControlType.String
+  },
+  minValue: {
+    title: "MinValue",
+    defaultValue: -10,
+    type: ControlType.Number
   },
   maxValue: {
     title: "MaxValue",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: 10,
+    type: ControlType.Number
   },
-  name: { title: "Name", defaultValue: false, type: ControlType.Boolean },
   readOnly: {
     title: "ReadOnly",
     defaultValue: false,
@@ -174,19 +114,49 @@ addPropertyControls(Input, {
     defaultValue: false,
     type: ControlType.Boolean
   },
-  role: { title: "Role", defaultValue: false, type: ControlType.Boolean },
-  step: { title: "Step", defaultValue: false, type: ControlType.Boolean },
-  styleInput: {
-    title: "StyleInput",
-    defaultValue: false,
-    type: ControlType.Boolean
+  step: {
+    title: "Step",
+    defaultValue: 1,
+    type: ControlType.Number,
+    displayStepper: true,
+    step: 1
   },
-  styleContainer: {
-    title: "StyleContainer",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  type: { title: "Type", defaultValue: false, type: ControlType.Boolean },
-  value: { title: "Value", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean }
+  type: {
+    title: "Type",
+    defaultValue: "text",
+    type: ControlType.Enum,
+    options: [
+      "text",
+      "password",
+      "datetime",
+      "datetime-local",
+      "date",
+      "month",
+      "time",
+      "week",
+      "number",
+      "email",
+      "url",
+      "search",
+      "tel",
+      "color"
+    ],
+    optionTitles: [
+      "text",
+      "password",
+      "datetime",
+      "datetime-local",
+      "date",
+      "month",
+      "time",
+      "week",
+      "number",
+      "email",
+      "url",
+      "search",
+      "tel",
+      "color"
+    ]
+  }
+  // value: { title: "Value", defaultValue: false, type: ControlType.Boolean },
 });
