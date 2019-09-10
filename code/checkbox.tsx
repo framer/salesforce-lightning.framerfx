@@ -9,7 +9,7 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerCheckbox: React.SFC = props => {
+const InnerCheckbox = props => {
   return (
     <System.Checkbox
       {...props}

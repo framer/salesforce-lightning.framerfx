@@ -1,6 +1,6 @@
 ## Salesforce Lightning Design System
 
-Todo:
+### Todo:
 
 - Does app.tsx (App Header) belong?
 
@@ -18,8 +18,9 @@ Todo:
 - Need to fix sizing of Icon in Pill component
 - Need to fix and update Popover to be more robust and easier to use
 - Need to start Progress bar(s)
+- Visual picker for variant on radio?
 
-Notes:
+### Notes:
 
 - Removed Builder Header for first pass
 - Removed Filters for first pass
