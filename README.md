@@ -2,8 +2,7 @@
 
 Todo:
 
-- Does app.tsx belong?
-- Does builder.tsx belong?
+- Does app.tsx (App Header) belong?
 
 - Does card.tsx make sense? Look into attaching elements as children
 - Find out why Datepicker isn't rendering
@@ -12,3 +11,9 @@ Todo:
 - How can I make datatable.tsx more user friendly
 - Find out why expandablesection.tsx doesn't open/close
 - Fix sizing of files.tsx
+
+Notes:
+
+- Removed Builder Header for first pass
+- Removed Filters for first pass
+- Removed Expression for first Pass
