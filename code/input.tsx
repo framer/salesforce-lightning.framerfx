@@ -35,7 +35,7 @@ addPropertyControls(Input, {
   error: {
     type: ControlType.Boolean,
     title: "Error",
-    defaultValue: true,
+    defaultValue: false,
     enabledTitle: "True",
     disabledTitle: "False"
   },

@@ -4,6 +4,8 @@ Todo:
 
 - Does app.tsx (App Header) belong?
 
+- Why don't icons appear on the canvas or in live preview
+
 - Does card.tsx make sense? Look into attaching elements as children
 - Find out why Datepicker isn't rendering
 - How can I make carousel.tsx more user friendly instead of hardcoding the items?
