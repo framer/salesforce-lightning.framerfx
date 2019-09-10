@@ -38,8 +38,8 @@ const InnerToast = props => {
 export const Toast = withHOC(InnerToast);
 
 Toast.defaultProps = {
-  width: 900,
-  height: 40
+  width: 700,
+  height: 82
 };
 
 addPropertyControls(Toast, {
