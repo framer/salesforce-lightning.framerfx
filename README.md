@@ -24,3 +24,4 @@ Notes:
 - Removed Menu for first Pass
 - Removed Modal for first Pass
 - Removed Page Header for first Pass, composed of multiple components
+- Removed Panel for first Pass, composed of multiple components
