@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -9,8 +9,24 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerCombobox: React.SFC = props => {
-  return <System.Combobox {...props} style={style} />;
+const InnerCombobox = props => {
+  return (
+    <System.Combobox
+      {...props}
+      style={style}
+      variant={"base"}
+      labels={{
+        label: props.label,
+        cancelButton: props.cancelButton,
+        doneButton: props.doneButton,
+        multipleOptionsSelected: props.multipleOptionsSelected,
+        noOptionsFound: props.noOptionsFound,
+        placeholder: props.placeholder,
+        placeholderReadOnly: props.placeholderReadOnly,
+        removePillTitle: props.removePillTitle
+      }}
+    />
+  );
 };
 
 export const Combobox = withHOC(InnerCombobox);
@@ -21,120 +37,90 @@ Combobox.defaultProps = {
 };
 
 addPropertyControls(Combobox, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
+  label: {
+    type: ControlType.String,
+    title: "Label",
+    defaultValue: "Label"
   },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+
+  cancelButton: {
+    type: ControlType.String,
+    title: "Cancel Button",
+    defaultValue: "Label"
   },
-  classNameContainer: {
-    title: "ClassNameContainer",
-    defaultValue: false,
-    type: ControlType.Boolean
+
+  doneButton: {
+    type: ControlType.String,
+    title: "Done Button",
+    defaultValue: "Label"
   },
-  classNameMenu: {
-    title: "ClassNameMenu",
-    defaultValue: false,
-    type: ControlType.Boolean
+
+  multipleOptionsSelected: {
+    type: ControlType.String,
+    title: "Multiple Options",
+    defaultValue: "Label"
   },
-  classNameMenuSubHeader: {
-    title: "ClassNameMenuSubHeader",
-    defaultValue: false,
-    type: ControlType.Boolean
+
+  noOptionsFound: {
+    type: ControlType.String,
+    title: "No Options Label",
+    defaultValue: "Label"
   },
-  events: { title: "Events", defaultValue: false, type: ControlType.Boolean },
+
+  placeholder: {
+    type: ControlType.String,
+    title: "Placeholder",
+    defaultValue: "Placeholder"
+  },
+
+  placeholderReadOnly: {
+    type: ControlType.String,
+    title: "Placeholder Readonly",
+    defaultValue: "Placeholder Readonly"
+  },
+
+  removePillTitle: {
+    type: ControlType.String,
+    title: "Remove Pill Title",
+    defaultValue: "Remove Pill Title"
+  },
+
   errorText: {
     title: "ErrorText",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  fieldLevelHelpTooltip: {
-    title: "FieldLevelHelpTooltip",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  hasInputSpinner: {
-    title: "HasInputSpinner",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  hasMenuSpinner: {
-    title: "HasMenuSpinner",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  hasStaticAlignment: {
-    title: "HasStaticAlignment",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  input: { title: "Input", defaultValue: false, type: ControlType.Boolean },
-  labels: { title: "Labels", defaultValue: false, type: ControlType.Boolean },
+  // hasInputSpinner: {
+  //   title: "HasInputSpinner",
+  //   defaultValue: false,
+  //   type: ControlType.Boolean
+  // },
+  // hasMenuSpinner: {
+  //   title: "HasMenuSpinner",
+  //   defaultValue: false,
+  //   type: ControlType.Boolean
+  // },
   isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean },
-  inheritWidthOf: {
-    title: "InheritWidthOf",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onRenderMenuItem: {
-    title: "OnRenderMenuItem",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  menuPosition: {
-    title: "MenuPosition",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  menuMaxWidth: {
-    title: "MenuMaxWidth",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
+
   multiple: {
     title: "Multiple",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  options: { title: "Options", defaultValue: false, type: ControlType.Boolean },
-  readOnlyMenuItemVisibleLength: {
-    title: "ReadOnlyMenuItemVisibleLength",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  predefinedOptionsOnly: {
-    title: "PredefinedOptionsOnly",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  popover: { title: "Popover", defaultValue: false, type: ControlType.Boolean },
+  // options: { title: "Options", defaultValue: false, type: ControlType.Boolean },
+
   required: {
     title: "Required",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  selection: {
-    title: "Selection",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  selectedListboxRef: {
-    title: "SelectedListboxRef",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
+  // selection: {
+  //   title: "Selection",
+  //   defaultValue: false,
+  //   type: ControlType.Boolean
+  // },
   singleInputDisabled: {
     title: "SingleInputDisabled",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  tooltipMenuItemDisabled: {
-    title: "TooltipMenuItemDisabled",
     defaultValue: false,
     type: ControlType.Boolean
   },
@@ -143,21 +129,5 @@ addPropertyControls(Combobox, {
     title: "DefaultValue",
     defaultValue: false,
     type: ControlType.Boolean
-  },
-  optionsAddItem: {
-    title: "OptionsAddItem",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  optionsSearchEntity: {
-    title: "OptionsSearchEntity",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  entityCombobox: {
-    title: "EntityCombobox",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean }
+  }
 });
