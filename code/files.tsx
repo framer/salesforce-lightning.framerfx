@@ -1,36 +1,54 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
+import { createIconPropertyControls } from "./icon";
 
 const style: React.CSSProperties = {
   width: "100%",
   height: "100%"
 };
 
-const InnerFiles: React.SFC = props => {
-  return <System.Files {...props} style={style} />;
+const InnerFiles = props => {
+  return (
+    <System.Files>
+      <System.File
+        labels={{
+          title: props.title
+        }}
+        icon={
+          <System.Icon
+            category={props.category}
+            name={props.name}
+            size={props.size}
+          />
+        }
+        crop={props.crop}
+      />
+    </System.Files>
+  );
 };
 
 export const Files = withHOC(InnerFiles);
 
 Files.defaultProps = {
-  width: 150,
-  height: 50
+  width: 1000,
+  height: 250
 };
 
 addPropertyControls(Files, {
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+  title: {
+    type: ControlType.String,
+    title: "Title",
+    defaultValue: "Proposal.pdf"
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  crop: { title: "Crop", defaultValue: false, type: ControlType.Boolean },
-  columnClassName: {
-    title: "ColumnClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  }
+  crop: {
+    type: ControlType.Enum,
+    title: "Crop",
+    options: ["16-by-9", "4-by-3", "1-by-1"],
+    optionTitles: ["16-by-9", "4-by-3", "1-by-1"],
+    defaultValue: "1-by-1"
+  },
+  ...createIconPropertyControls(props => props.icon === false)
 });

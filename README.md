@@ -11,3 +11,4 @@ Todo:
 - How can I make combobox.tsx more user friendly
 - How can I make datatable.tsx more user friendly
 - Find out why expandablesection.tsx doesn't open/close
+- Fix sizing of files.tsx
