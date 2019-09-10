@@ -23,3 +23,4 @@ Notes:
 - Removed Expression for first Pass
 - Removed Menu for first Pass
 - Removed Modal for first Pass
+- Removed Page Header for first Pass, composed of multiple components
