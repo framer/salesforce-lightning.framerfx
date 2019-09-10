@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -10,83 +10,67 @@ const style: React.CSSProperties = {
 };
 
 const InnerCheckbox: React.SFC = props => {
-  return <System.Checkbox {...props} style={style} />;
+  return (
+    <System.Checkbox
+      {...props}
+      style={style}
+      labels={{ label: props.label }}
+      errorText={props.error && props.errorText}
+    />
+  );
 };
 
 export const Checkbox = withHOC(InnerCheckbox);
 
 Checkbox.defaultProps = {
-  width: 150,
-  height: 50
+  width: 100,
+  height: 24
 };
 
 addPropertyControls(Checkbox, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
+  label: { title: "Label", defaultValue: "Checkbox", type: ControlType.String },
+  variant: {
+    title: "Variant",
+    defaultValue: "base",
+    type: ControlType.Enum,
+    options: ["base", "toggle", "button-group"],
+    optionTitles: ["base", "toggle", "button-group"]
   },
   checked: { title: "Checked", defaultValue: false, type: ControlType.Boolean },
-  defaultChecked: {
-    title: "DefaultChecked",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   disabled: {
     title: "Disabled",
     defaultValue: false,
     type: ControlType.Boolean
   },
+  error: {
+    type: ControlType.Boolean,
+    title: "Error",
+    enabledTitle: "True",
+    disabledTitle: "False",
+    defaultValue: false
+  },
   errorText: {
     title: "ErrorText",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "This field has an error",
+    type: ControlType.String,
+    hidden(props) {
+      return props.error === false;
+    }
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  indeterminate: {
-    title: "Indeterminate",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  labels: { title: "Labels", defaultValue: false, type: ControlType.Boolean },
-  name: { title: "Name", defaultValue: false, type: ControlType.Boolean },
-  onBlur: { title: "OnBlur", defaultValue: false, type: ControlType.Boolean },
-  onChange: {
-    title: "OnChange",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onFocus: { title: "OnFocus", defaultValue: false, type: ControlType.Boolean },
-  onKeyDown: {
-    title: "OnKeyDown",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyPress: {
-    title: "OnKeyPress",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onKeyUp: { title: "OnKeyUp", defaultValue: false, type: ControlType.Boolean },
   readOnly: {
     title: "ReadOnly",
     defaultValue: false,
     type: ControlType.Boolean
   },
+  indeterminate: {
+    type: ControlType.Boolean,
+    title: "Indeterminate",
+    defaultValue: false,
+    enabledTitle: "True",
+    disabledTitle: "False"
+  },
   required: {
     title: "Required",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  role: { title: "Role", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean },
-  coverable: {
-    title: "Coverable",
     defaultValue: false,
     type: ControlType.Boolean
   },
@@ -95,20 +79,11 @@ addPropertyControls(Checkbox, {
     defaultValue: false,
     type: ControlType.Boolean
   },
-  onRenderVisualPicker: {
-    title: "OnRenderVisualPicker",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onRenderVisualPickerSelected: {
-    title: "OnRenderVisualPickerSelected",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onRenderVisualPickerNotSelected: {
-    title: "OnRenderVisualPickerNotSelected",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  size: { title: "Size", defaultValue: false, type: ControlType.Boolean }
+  size: {
+    title: "Size",
+    defaultValue: "medium",
+    type: ControlType.Enum,
+    options: ["medium", "large"],
+    optionTitles: ["Medium", "Large"]
+  }
 });
