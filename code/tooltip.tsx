@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -9,7 +9,7 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerTooltip: React.SFC = props => {
+const InnerTooltip = props => {
   return <System.Tooltip {...props} style={style} />;
 };
 
@@ -21,56 +21,68 @@ Tooltip.defaultProps = {
 };
 
 addPropertyControls(Tooltip, {
-  align: { title: "Align", defaultValue: false, type: ControlType.Boolean },
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  children: {
-    title: "Children",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  content: { title: "Content", defaultValue: false, type: ControlType.Boolean },
-  dialogClassName: {
-    title: "DialogClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  hasStaticAlignment: {
-    title: "HasStaticAlignment",
-    defaultValue: false,
-    type: ControlType.Boolean
+  align: {
+    title: "Align",
+    defaultValue: "top",
+    type: ControlType.Enum,
+    options: [
+      "top",
+      "top left",
+      "top right",
+      "right",
+      "right top",
+      "right bottom",
+      "bottom",
+      "bottom left",
+      "bottom right",
+      "left",
+      "left top",
+      "left bottom"
+    ],
+    optionTitles: [
+      "top",
+      "top left",
+      "top right",
+      "right",
+      "right top",
+      "right bottom",
+      "bottom",
+      "bottom left",
+      "bottom right",
+      "left",
+      "left top",
+      "left bottom"
+    ]
   },
   hoverCloseDelay: {
     title: "HoverCloseDelay",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: 50,
+    type: ControlType.Number
   },
   hoverOpenDelay: {
     title: "HoverOpenDelay",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: 0,
+    type: ControlType.Number
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  labels: { title: "Labels", defaultValue: false, type: ControlType.Boolean },
+  content: {
+    type: ControlType.String,
+    title: "Content",
+    defaultValue:
+      "Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi."
+  },
   isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean },
-  triggerClassName: {
-    title: "TriggerClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+  theme: {
+    title: "Theme",
+    type: ControlType.Enum,
+    defaultValue: "info",
+    options: ["info", "error"],
+    optionTitles: ["Info", "Error"]
   },
-  position: {
-    title: "Position",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  triggerStyle: {
-    title: "TriggerStyle",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  theme: { title: "Theme", defaultValue: false, type: ControlType.Boolean },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean }
+  variant: {
+    title: "Variant",
+    defaultValue: "base",
+    type: ControlType.Enum,
+    options: ["base", "learnMore", "list-item"],
+    optionTitles: ["Base", "Learn More", "List Item"]
+  }
 });
