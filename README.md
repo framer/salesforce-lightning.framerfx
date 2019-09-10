@@ -14,9 +14,12 @@ Todo:
 - Find out why expandablesection.tsx doesn't open/close
 - Fix sizing of files.tsx
 - Add icon support for input
+- Can I override the default props for Icons if I import them? I.e files.tsx to have a different default icon
 
 Notes:
 
 - Removed Builder Header for first pass
 - Removed Filters for first pass
 - Removed Expression for first Pass
+- Removed Menu for first Pass
+- Removed Modal for first Pass
