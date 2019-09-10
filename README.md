@@ -17,6 +17,7 @@ Todo:
 - Can I override the default props for Icons if I import them? I.e files.tsx to have a different default icon
 - Need to fix sizing of Icon in Pill component
 - Need to fix and update Popover to be more robust and easier to use
+- Need to start Progress bar(s)
 
 Notes:
 
