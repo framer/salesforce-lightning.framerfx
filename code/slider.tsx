@@ -9,57 +9,63 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerSlider: React.SFC = props => {
-  return <System.Slider {...props} style={style} />;
+const InnerSlider = props => {
+  return (
+    <System.Slider
+      {...props}
+      style={style}
+      errorText={props.error && props.myErrorText}
+    />
+  );
 };
 
 export const Slider = withHOC(InnerSlider);
 
 Slider.defaultProps = {
-  width: 150,
-  height: 50
+  width: 315,
+  height: 100
 };
 
 addPropertyControls(Slider, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  classNameContainer: {
-    title: "ClassNameContainer",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  defaultValue: {
-    title: "DefaultValue",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   disabled: {
     title: "Disabled",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  errorText: {
+  error: {
+    type: ControlType.Boolean,
+    title: "Error",
+    defaultValue: false
+  },
+  myErrorText: {
     title: "ErrorText",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "Number is not valid",
+    type: ControlType.String,
+    hidden(props) {
+      return props.error === false;
+    }
   },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  label: { title: "Label", defaultValue: false, type: ControlType.Boolean },
-  max: { title: "Max", defaultValue: false, type: ControlType.Boolean },
-  min: { title: "Min", defaultValue: false, type: ControlType.Boolean },
-  name: { title: "Name", defaultValue: false, type: ControlType.Boolean },
-  onChange: {
-    title: "OnChange",
-    defaultValue: false,
-    type: ControlType.Boolean
+  label: {
+    title: "Label",
+    defaultValue: "Slider Label",
+    type: ControlType.String
   },
-  onInput: { title: "OnInput", defaultValue: false, type: ControlType.Boolean },
-  size: { title: "Size", defaultValue: false, type: ControlType.Boolean },
-  step: { title: "Step", defaultValue: false, type: ControlType.Boolean },
-  value: { title: "Value", defaultValue: false, type: ControlType.Boolean },
+  max: { title: "Max", defaultValue: 100, type: ControlType.Number },
+  min: { title: "Min", defaultValue: 0, type: ControlType.Number },
+  size: {
+    title: "Size",
+    defaultValue: "medium",
+    type: ControlType.Enum,
+    options: ["x-small", "small", "medium", "large"],
+    optionTitles: ["x Small", "Small", "Medium", "Large"]
+  },
+  step: {
+    title: "Step",
+    defaultValue: 1,
+    type: ControlType.Number,
+    displayStepper: true,
+    step: 1
+  },
   vertical: {
     title: "Vertical",
     defaultValue: false,

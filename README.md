@@ -19,6 +19,7 @@
 - Need to fix and update Popover to be more robust and easier to use
 - Need to start Progress bar(s)
 - Visual picker for variant on radio?
+- Add useState hook to slider.tsx to control displayed value as slider updates
 
 ### Notes
 
