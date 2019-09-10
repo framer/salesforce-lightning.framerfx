@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType,  addPropertyControls } from "framer";
+import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
@@ -16,34 +16,37 @@ const InnerIllustration: React.SFC = props => {
 export const Illustration = withHOC(InnerIllustration);
 
 Illustration.defaultProps = {
-  width: 150,
-  height: 50
+  width: 700,
+  height: 330
 };
 
 addPropertyControls(Illustration, {
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+  heading: {
+    title: "Heading",
+    defaultValue: "Big Heading",
+    type: ControlType.String
   },
-  heading: { title: "Heading", defaultValue: false, type: ControlType.Boolean },
   illustration: {
     title: "Illustration",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  internalIllustration: {
-    title: "InternalIllustration",
-    defaultValue: false,
+    defaultValue: true,
     type: ControlType.Boolean
   },
   messageBody: {
     title: "MessageBody",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: "This is a string of text in the message body",
+    type: ControlType.String
   },
-  name: { title: "Name", defaultValue: false, type: ControlType.Boolean },
-  path: { title: "Path", defaultValue: false, type: ControlType.Boolean },
-  size: { title: "Size", defaultValue: false, type: ControlType.Boolean },
-  style: { title: "Style", defaultValue: false, type: ControlType.Boolean }
+  name: {
+    title: "Name",
+    defaultValue: "Name of the illustration",
+    type: ControlType.String
+  },
+  path: { title: "Path", type: ControlType.File, allowedFileTypes: ["svg"] },
+  size: {
+    title: "Size",
+    defaultValue: "small",
+    type: ControlType.Enum,
+    options: ["small", "large"],
+    optionTitless: ["Small", "Large"]
+  }
 });
