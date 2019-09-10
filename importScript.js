@@ -28,7 +28,10 @@ function mapSalesforceComponent(rawComponentName, rawComp) {
     propTypes
   };
 
-  return convert(compInfo);
+  return {
+    ...convert(compInfo),
+    componentPath: rawComp["SLDS-component-path"]
+  };
 }
 
 const componentNames = Object.keys(json);
@@ -38,19 +41,21 @@ const componentInfos = componentNames.map(compName => {
 });
 
 async function main() {
-  const components = await emitComponents({
-    packageName: "@salesforce/whatever",
-    additionalImports: [
-      "import 'node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css'"
-    ],
-    components: componentInfos
-  });
+  for (const compInfo of componentInfos) {
+    const components = await emitComponents({
+      packageName: `@salesforce/design-system-react`,
+      additionalImports: [
+        "import '@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css'"
+      ],
+      components: [compInfo]
+    });
 
-  for (const comp of components) {
-    if (comp.type === "component") {
-      fs.writeFileSync(path.join("code/", comp.fileName), comp.outputSource);
-    } else if (comp.type === "hoc") {
-      fs.writeFileSync(path.join("code/", comp.fileName), comp.outputSource);
+    for (const comp of components) {
+      if (comp.type === "component") {
+        fs.writeFileSync(path.join("code/", comp.fileName), comp.outputSource);
+      } else if (comp.type === "hoc") {
+        fs.writeFileSync(path.join("code/", comp.fileName), comp.outputSource);
+      }
     }
   }
 }

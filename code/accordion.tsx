@@ -1,8 +1,8 @@
 import * as React from "react";
-import * as System from "@salesforce/whatever";
+import * as System from "@salesforce/design-system-react";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
-import "node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
+import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -10,26 +10,85 @@ const style: React.CSSProperties = {
 };
 
 const InnerAccordion: React.SFC = props => {
-  return <System.Accordion {...props} style={style} />;
+  const [state, setState] = React.useState({
+    expandedPanels: {},
+    items: [
+      {
+        id: "1",
+        summary: "Accordion Summary",
+        details: "Accordion details - A"
+      },
+      {
+        id: "2",
+        summary: "Accordion Summary",
+        details: "Accordion details - B"
+      },
+      {
+        id: "3",
+        summary: "Accordion Summary",
+        details: "Accordion details - C"
+      }
+    ]
+  });
+
+  function togglePanel(event, data) {
+    setState({
+      expandedPanels: {
+        [data.id]: !state.expandedPanels[data.id]
+      },
+      items: [
+        {
+          id: "1",
+          summary: "Accordion Summary",
+          details: "Accordion details - A"
+        },
+        {
+          id: "2",
+          summary: "Accordion Summary",
+          details: "Accordion details - B"
+        },
+        {
+          id: "3",
+          summary: "Accordion Summary",
+          details: "Accordion details - C"
+        }
+      ]
+    });
+    if (this.props.action) {
+      const dataAsArray = Object.keys(data).map(id => data[id]);
+      this.props.action("onClick")(event, ...dataAsArray);
+    } else if (console) {
+      console.log("[onSelect] (event, data)", event, data);
+    }
+  }
+
+  return (
+    <System.IconSettings iconPath="/assets/icons">
+      <System.Accordion {...props} style={style}>
+        {state.items.map(item => {
+          return (
+            <System.AccordionPanel
+              expanded={!!state.expandedPanels[item.id]}
+              id={item.id}
+              panelContentActions={() => {}}
+              key={item.id}
+              onTogglePanel={event => togglePanel(event, item)}
+              summary={item.summary}
+            >
+              {item.details}
+            </System.AccordionPanel>
+          );
+        })}
+      </System.Accordion>
+    </System.IconSettings>
+  );
 };
 
 export const Accordion = withHOC(InnerAccordion);
 
 Accordion.defaultProps = {
-  width: 150,
-  height: 50
+  width: 600,
+  height: 140
 };
 
-addPropertyControls(Accordion, {
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  children: {
-    title: "Children",
-    defaultValue: false,
-    type: ControlType.Boolean
-  }
-});
+addPropertyControls(Accordion, {});
