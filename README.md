@@ -31,3 +31,4 @@
 - Removed Page Header for first pass, composed of multiple components
 - Removed Panel for first pass, composed of multiple components
 - Removed Setup Assistant for first pass, composed of multiple components
+- Removed Split View from first pass, composed of many components
