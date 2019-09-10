@@ -38,3 +38,4 @@
 - Removed Trial Bars from first pass, composed of many components
 - Removed Visual Picker from first pass, composed of many components
 - Removed Welcome Mat for first pass (What is best practice for this? - This is a version of a modal)
+- Removed Tree from first pass, need to figure out how to make it accessible without hard coding values
