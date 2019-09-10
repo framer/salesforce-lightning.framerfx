@@ -20,6 +20,7 @@
 - Need to start Progress bar(s)
 - Visual picker for variant on radio?
 - Add useState hook to slider.tsx to control displayed value as slider updates
+- How can I make tabs more user friendly?
 
 ### Notes
 

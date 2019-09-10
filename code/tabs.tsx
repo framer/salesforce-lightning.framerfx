@@ -9,43 +9,42 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerTabs: React.SFC = props => {
-  return <System.Tabs {...props} style={style} />;
+const InnerTabs = props => {
+  return (
+    <System.Tabs {...props} style={style}>
+      {props.tabs.map((item, index) => {
+        return <System.TabsPanel label={item}>{item}</System.TabsPanel>;
+      })}
+    </System.Tabs>
+  );
 };
 
 export const Tabs = withHOC(InnerTabs);
 
 Tabs.defaultProps = {
-  width: 150,
-  height: 50
+  width: 300,
+  height: 100
 };
 
 addPropertyControls(Tabs, {
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  children: {
-    title: "Children",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  defaultSelectedIndex: {
-    title: "DefaultSelectedIndex",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  onSelect: {
-    title: "OnSelect",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  variant: { title: "Variant", defaultValue: false, type: ControlType.Boolean },
   selectedIndex: {
     title: "SelectedIndex",
-    defaultValue: false,
-    type: ControlType.Boolean
+    defaultValue: 0,
+    type: ControlType.Number
+  },
+  variant: {
+    type: ControlType.Enum,
+    title: "Variant",
+    defaultValue: "default",
+    options: ["default", "scoped"],
+    optionTitles: ["Default", "Scoped"]
+  },
+  tabs: {
+    type: ControlType.Array,
+    title: "Tabs",
+    defaultValue: ["Tab 1", "Tab 2"],
+    propertyControl: {
+      type: ControlType.String
+    }
   }
 });
