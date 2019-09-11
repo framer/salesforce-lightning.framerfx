@@ -2,33 +2,88 @@
 
 A repository to hold components from [Salesforce Lightning Design System](https://react.lightningdesignsystem.com/).
 
-### Todo
+### Overall Tasks
 
-- Why don't icons appear on the canvas or in live preview
-- Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured)
-- Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured)
-- How can I make carousel.tsx more user friendly instead of hardcoding the items?
-- How can I make combobox.tsx more user friendly
-- How can I make datatable.tsx more user friendly
-- Find out why expandablesection.tsx doesn't open/close
-- Fix sizing of files.tsx
-- Add icon support for input
-- Can I override the default props for Icons if I import them? I.e files.tsx to have a different default icon
-- Need to fix sizing of Icon in Pill component
-- Need to fix and update Popover to be more robust and easier to use
-- Need to start Progress bar(s)
-- Visual picker for variant on radio?
-- Add useState hook to slider.tsx to control displayed value as slider updates
-- How can I make tabs more user friendly?
-- Why doesn't tooltip open on hover
-- How can I make verticalnavigation more user friendly + add better content (more dynamic)?
+- [ ] Find out why icons don't appear on the canvas or in live preview. See icon.tsx
+- [ ] Is it possible override the default props for Icons if we import them? I.e files.tsx to have a different default icon vs the ones passed from icon.tsx
 
-### Questions
+### Component Specific Tasks
 
-- Does app.tsx (App Header) belong?
-- Does card.tsx make sense? Look into attaching elements as children
+#### app.tsx
+
+- [ ] Does app.tsx (App Header) make sense to add in Framer X?
+
+#### card.tsx
+
+- [ ] Does card.tsx (Cards) make sense? One approach could be attaching elements as children through a multi connector
+
+#### carousel.tsx
+
+- [ ] Make carousel.tsx more user friendly instead of hardcoding the items that need to be added.
+
+#### combobox.tsx
+
+- [ ] Make combobox.tsx more user friendly.
+
+#### datatable.tsx
+
+- [ ] Make datatable.tsx more user friendly.
+
+#### datepicker.tsx
+
+- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured).
+
+#### expandablesection.tsx
+
+- [ ] Make expandablesection.tsx open/close. Need to add state to control this.
+
+#### files.tsx
+
+- [ ] Fix sizing issue of files.tsx.
+
+#### input.tsx
+
+- [ ] Add icon support for input.
+
+#### timepicker.tsx
+
+- [ ] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured).
+
+#### pill.tsx
+
+- [ ] Fix sizing of Icon inside the Pill component.
+
+#### popover.tsx
+
+- [ ] Fix and update Popover to be more robust and easier to use.
+
+#### progress.tsx
+
+- [ ] Start Progress bar(s).
+
+#### radio.tsx
+
+- Find out what Visual Picker variant does to the Radio Component?
+
+#### slider.tsx
+
+- [ ] Add useState hook to slider.tsx to control displayed value as slider updates.
+
+#### tabs.tsx
+
+- [ ] Make tabs more user friendly instead of hardcoding the items that need to be added.
+
+#### tooltip.tsx
+
+- [ ] Why doesn't tooltip open on hover?
+
+#### verticalnavigation.tsx
+
+- [ ] Make Vertical Navigation more user friendly + add better content (more dynamic) instead of hardcoding the items that need to be added.
 
 ### Notes
+
+There were a few components left out for the first pass, ones that aren't so core to the Lightning Design System. Let's foucs on completing the tasks/components above before moving onto the ones below.
 
 - Removed Builder Header for first pass
 - Removed Filters for first pass
