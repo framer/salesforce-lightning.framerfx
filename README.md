@@ -4,7 +4,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 ### Overall Tasks
 
-- [ ] Find out why icons don't appear on the canvas or in live preview. See icon.tsx
+- [] Find out why icons don't appear on the canvas or in live preview. See icon.tsx
 - [ ] Is it possible override the default props for Icons if we import them? I.e files.tsx to have a different default icon vs the ones passed from icon.tsx
 
 ### Component Specific Tasks
