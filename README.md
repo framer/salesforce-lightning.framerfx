@@ -1,6 +1,6 @@
 ## Salesforce Lightning Design System
 
-A repository to hold components from Salesforce Lightning Design System.
+A repository to hold components from [Salesforce Lightning Design System](https://react.lightningdesignsystem.com/).
 
 ### Todo
 
