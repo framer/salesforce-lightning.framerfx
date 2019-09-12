@@ -35,7 +35,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### expandablesection.tsx
 
-- [ ] Make expandablesection.tsx open/close. Need to add state to control this. - @addisonschultz
+- [x] Make expandablesection.tsx open/close. Need to add state to control this. - @addisonschultz
 
 #### files.tsx
 
@@ -47,7 +47,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### timepicker.tsx
 
-- [ ] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
+- [x] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
 
 #### pill.tsx
 

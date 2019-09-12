@@ -16,16 +16,11 @@ const InnerTime: React.SFC = props => {
 export const Timepicker = withHOC(InnerTime);
 
 Timepicker.defaultProps = {
-  width: 150,
-  height: 50
+  width: 300,
+  height: 60
 };
 
 addPropertyControls(Timepicker, {
-  constrainToScrollParent: {
-    title: "ConstrainToScrollParent",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   disabled: {
     title: "Disabled",
     defaultValue: false,
@@ -33,18 +28,12 @@ addPropertyControls(Timepicker, {
   },
   label: {
     title: "Label",
-    defaultValue: "Default Label",
+    defaultValue: "Time",
     type: ControlType.String
-  },
-  menuPosition: {
-    title: "MenuPosition",
-    defaultValue: "absolute",
-    type: ControlType.Enum,
-    options: ["absolute", "relative"]
   },
   placeholder: {
     title: "Placeholder",
-    defaultValue: "Pick a time",
+    defaultValue: "Pick Time",
     type: ControlType.String
   },
   required: {
@@ -55,6 +44,9 @@ addPropertyControls(Timepicker, {
   stepInMinutes: {
     title: "StepInMinutes",
     defaultValue: 30,
-    type: ControlType.Number
+    type: ControlType.Number,
+    step: 1,
+    min: 1,
+    max: 60
   }
 });

@@ -10,8 +10,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerExpandable = props => {
+  const [isOpen, setIsOpen] = React.useState(props.isOpen);
   return (
-    <System.ExpandableSection {...props} style={style}>
+    <System.ExpandableSection
+      {...props}
+      style={style}
+      isOpen={isOpen}
+      onToggleOpen={() => {
+        setIsOpen(!isOpen);
+      }}
+    >
       <p>{props.text}</p>
     </System.ExpandableSection>
   );
