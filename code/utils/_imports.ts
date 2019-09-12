@@ -1,9 +1,12 @@
 import { url } from "framer/resource";
+import * as iconManifest from "@salesforce-ux/design-system/ui.icons.json";
 
-const iconPath =
-  "../../node_modules/@salesforce-ux/design-system/assets/icons/action-sprite/svg/symbols.svg";
+const iconPaths = iconManifest.map(
+  manifestRow =>
+    `../../node_modules/@salesforce-ux/design-system/assets/icons/${manifestRow.name}-sprite/svg/symbols.svg`
+);
 
-async function loadIconSpriteSheet() {
+function loadIconSpriteSheet(iconPath: string) {
   const request = new XMLHttpRequest();
   request.open("GET", url(iconPath), true);
   request.send();
@@ -15,7 +18,8 @@ async function loadIconSpriteSheet() {
   };
 }
 
-if (!document.getElementById(iconPath)) {
-  console.log("Loading SVG sprite");
-  loadIconSpriteSheet();
+for (const iconPath of iconPaths) {
+  if (!document.getElementById(iconPath)) {
+    loadIconSpriteSheet(iconPath);
+  }
 }
