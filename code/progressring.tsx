@@ -10,20 +10,14 @@ const style: React.CSSProperties = {
 };
 
 const InnerProgress = props => {
-  return (
-    <System.ProgressRing
-      {...props}
-      style={style}
-      labels={props.label && { label: props.complete }}
-    />
-  );
+  return <System.ProgressRing {...props} style={style} />;
 };
 
 export const ProgressRing = withHOC(InnerProgress);
 
 ProgressRing.defaultProps = {
-  width: 300,
-  height: 40
+  width: 25,
+  height: 25
 };
 
 addPropertyControls(ProgressRing, {
@@ -35,45 +29,30 @@ addPropertyControls(ProgressRing, {
     max: 100,
     step: 1
   },
-  label: {
+  hasIcon: {
     type: ControlType.Boolean,
-    title: "Label",
-    defaultValue: true
+    title: "Icon",
+    defaultValue: false
   },
-  complete: {
-    type: ControlType.String,
-    title: "Title",
-    defaultValue: "Progress Label",
-    hidden(props) {
-      return props.label === false;
-    }
-  },
-  color: {
+  theme: {
     type: ControlType.Enum,
-    title: "Color",
-    defaultValue: "default",
-    options: ["default", "success"],
-    optionTitles: ["Default", "Success"]
+    title: "Theme",
+    defaultValue: "active",
+    options: ["active", "warning", "expired", "complete"],
+    optionTitles: ["Active", "Warning", "Expired", "Complete"]
   },
-  radius: {
+  size: {
     type: ControlType.Enum,
-    title: "Radius",
-    defaultValue: "default",
-    options: ["default", "circular"],
-    optionTitles: ["Default", "circular"]
+    title: "Size",
+    defaultValue: "Medium",
+    options: ["medium", "large"],
+    optionTitles: ["Medium", "Large"]
   },
-  orientation: {
+  flowDirection: {
     type: ControlType.Enum,
-    title: "Orientation",
-    defaultValue: "horizontal",
-    options: ["horizontal", "vertical"],
-    optionTitles: ["Horizontal", "Vertical"]
-  },
-  thickness: {
-    type: ControlType.Enum,
-    title: "Tickness",
-    defaultValue: "medium",
-    options: ["x-small", "small", "medium", "large"],
-    optionTitles: ["X Small", "Small", "Medium", "Large"]
+    title: "Direction",
+    defaultValue: "drain",
+    options: ["drain", "fill"],
+    optionTitles: ["Drain", "Fill"]
   }
 });

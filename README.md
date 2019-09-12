@@ -59,7 +59,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### progressindicator.tsx
 
-- [ ] Add event handling. - @addisonschultz
+- [ ] Add event handling when clicking on the different steps. - @addisonschultz
 
 #### radio.tsx
 
