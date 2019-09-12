@@ -57,9 +57,9 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 - [ ] Fix and update Popover to be more robust and easier to use. - @fhur
 
-#### progress.tsx
+#### progressindicator.tsx
 
-- [ ] Start Progress bar(s). - @addisonschultz
+- [ ] Add event handling. - @addisonschultz
 
 #### radio.tsx
 

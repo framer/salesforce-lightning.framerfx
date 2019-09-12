@@ -10,70 +10,34 @@ const style: React.CSSProperties = {
 };
 
 const InnerProgress = props => {
-  return (
-    <System.ProgressIndicator
-      {...props}
-      style={style}
-      labels={props.label && { label: props.complete }}
-    />
-  );
+  let steps = props.stepItems.map((step, index) => {
+    return { id: index, label: step };
+  });
+
+  return <System.ProgressIndicator {...props} style={style} steps={steps} />;
 };
 
 export const ProgressIndicator = withHOC(InnerProgress);
 
 ProgressIndicator.defaultProps = {
-  width: 300,
-  height: 40
+  width: 200,
+  height: 200
 };
 
 addPropertyControls(ProgressIndicator, {
-  value: {
-    title: "Value",
-    defaultValue: 75,
-    type: ControlType.Number,
-    min: 0,
-    max: 100,
-    step: 1
-  },
-  label: {
-    type: ControlType.Boolean,
-    title: "Label",
-    defaultValue: true
-  },
-  complete: {
-    type: ControlType.String,
-    title: "Title",
-    defaultValue: "Progress Label",
-    hidden(props) {
-      return props.label === false;
+  stepItems: {
+    type: ControlType.Array,
+    title: "Steps",
+    defaultValue: ["Step 1", "Step 2", "Step 3", "Step 4"],
+    propertyControl: {
+      type: ControlType.String
     }
-  },
-  color: {
-    type: ControlType.Enum,
-    title: "Color",
-    defaultValue: "default",
-    options: ["default", "success"],
-    optionTitles: ["Default", "Success"]
-  },
-  radius: {
-    type: ControlType.Enum,
-    title: "Radius",
-    defaultValue: "default",
-    options: ["default", "circular"],
-    optionTitles: ["Default", "circular"]
   },
   orientation: {
     type: ControlType.Enum,
     title: "Orientation",
-    defaultValue: "horizontal",
+    defaultValue: "vertical",
     options: ["horizontal", "vertical"],
     optionTitles: ["Horizontal", "Vertical"]
-  },
-  thickness: {
-    type: ControlType.Enum,
-    title: "Tickness",
-    defaultValue: "medium",
-    options: ["x-small", "small", "medium", "large"],
-    optionTitles: ["X Small", "Small", "Medium", "Large"]
   }
 });
