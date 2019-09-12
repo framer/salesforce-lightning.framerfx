@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as System from "@salesforce/design-system-react";
-import { ControlType, addPropertyControls } from "framer";
+import { addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
+import { generateIconPropertyControls } from "./utils/propertyControls";
 import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
 
 const style: React.CSSProperties = {
@@ -28,35 +29,4 @@ Icon.defaultProps = {
   height: 155
 };
 
-export function createIconPropertyControls(hidden?: (props: any) => boolean) {
-  return {
-    category: {
-      type: ControlType.String,
-      defaultValue: "action",
-      title: "Category",
-      hidden: hidden || (() => false)
-    },
-    name: {
-      type: ControlType.String,
-      title: "Name",
-      defaultValue: "add_contact",
-      hidden: hidden || (() => false)
-    },
-    size: {
-      type: ControlType.Enum,
-      title: "Size",
-      options: ["xx-small", "x-small", "small", "medium", "large"],
-      optionTitles: ["XX-Small", "X-Small", "Small", "Medium", "Large"],
-      defaultValue: "medium",
-      hidden: hidden || (() => false)
-    },
-    assistiveText: {
-      type: ControlType.String,
-      title: "Assistive Text",
-      defaultValue: "SLDS Icon",
-      hidden: hidden || (() => false)
-    }
-  };
-}
-
-addPropertyControls(Icon, createIconPropertyControls());
+addPropertyControls(Icon, generateIconPropertyControls());
