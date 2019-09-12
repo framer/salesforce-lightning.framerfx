@@ -31,11 +31,11 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### datepicker.tsx
 
-- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
+- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured). Could also be that it needs React.DOM to render correctly - @addisonschultz
 
 #### expandablesection.tsx
 
-- [ ] Make expandablesection.tsx open/close. Need to add state to control this. - @addisonschultz
+- [x] Make expandablesection.tsx open/close. Need to add state to control this. - @addisonschultz
 
 #### files.tsx
 
@@ -47,7 +47,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### timepicker.tsx
 
-- [ ] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
+- [x] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
 
 #### pill.tsx
 
@@ -57,9 +57,9 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 - [ ] Fix and update Popover to be more robust and easier to use. - @fhur
 
-#### progress.tsx
+#### progressindicator.tsx
 
-- [ ] Start Progress bar(s). - @addisonschultz
+- [ ] Add event handling when clicking on the different steps. - @addisonschultz
 
 #### radio.tsx
 
@@ -67,7 +67,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### slider.tsx
 
-- [ ] Add useState hook to slider.tsx to control displayed value as slider updates. - @addisonschultz
+- [x] Add useState hook to slider.tsx to control displayed value as slider updates. - @addisonschultz
 
 #### tabs.tsx
 
