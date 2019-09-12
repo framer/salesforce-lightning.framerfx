@@ -10,11 +10,20 @@ const style: React.CSSProperties = {
 };
 
 const InnerInput = props => {
+  function onChange(e: React.ChangeEvent) {
+    const element = e.nativeEvent.target as HTMLInputElement;
+    const inputValue = element.value;
+    if (props.onValueChange) {
+      props.onValueChange(inputValue);
+    }
+  }
+
   return (
     <System.Input
       {...props}
       style={style}
       errorText={props.error && props.myErrorText}
+      onChange={onChange}
     />
   );
 };
