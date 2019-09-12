@@ -31,7 +31,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### datepicker.tsx
 
-- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
+- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured). Could also be that it needs React.DOM to render correctly - @addisonschultz
 
 #### expandablesection.tsx
 
