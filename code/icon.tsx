@@ -3,7 +3,7 @@ import * as System from "@salesforce/design-system-react";
 import { addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
 import { generateIconPropertyControls } from "./utils/propertyControls";
-import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
+
 
 const style: React.CSSProperties = {
   width: "100%",
