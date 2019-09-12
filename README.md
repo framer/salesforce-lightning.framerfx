@@ -4,82 +4,82 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 ### Overall Tasks
 
-- [ ] Find out why icons don't appear on the canvas or in live preview. See icon.tsx
-- [ ] Is it possible override the default props for Icons if we import them? I.e files.tsx to have a different default icon vs the ones passed from icon.tsx
+- [ ] Find out why icons don't appear on the canvas or in live preview. See icon.tsx - @ikettles
+- [ ] Is it possible override the default props for Icons if we import them? I.e files.tsx to have a different default icon vs the ones passed from icon.tsx - @ikettles
 
 ### Component Specific Tasks
 
 #### app.tsx
 
-- [ ] Does app.tsx (App Header) make sense to add in Framer X?
+- [ ] Does app.tsx (App Header) make sense to add in Framer X? - @addisonschultz
 
 #### card.tsx
 
-- [ ] Does card.tsx (Cards) make sense? One approach could be attaching elements as children through a multi connector
+- [ ] Does card.tsx (Cards) make sense? One approach could be attaching elements as children through a multi connector - @addisonschultz
 
 #### carousel.tsx
 
-- [ ] Make carousel.tsx more user friendly instead of hardcoding the items that need to be added.
+- [ ] Make carousel.tsx more user friendly instead of hardcoding the items that need to be added. - @fhur
 
 #### combobox.tsx
 
-- [ ] Make combobox.tsx more user friendly.
+- [ ] Make combobox.tsx more user friendly. - @fhur
 
 #### datatable.tsx
 
-- [ ] Make datatable.tsx more user friendly.
+- [ ] Make datatable.tsx more user friendly. - @fhur
 
 #### datepicker.tsx
 
-- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured).
+- [ ] Find out why Datepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
 
 #### expandablesection.tsx
 
-- [ ] Make expandablesection.tsx open/close. Need to add state to control this.
+- [ ] Make expandablesection.tsx open/close. Need to add state to control this. - @addisonschultz
 
 #### files.tsx
 
-- [ ] Fix sizing issue of files.tsx.
+- [ ] Fix sizing issue of files.tsx. - @ikettles
 
 #### input.tsx
 
-- [ ] Add icon support for input.
+- [ ] Add icon support for input. - @addisonschultz
 
 #### timepicker.tsx
 
-- [ ] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured).
+- [ ] Find out why Timepicker isn't rendering (most likely due to formatter and parser needing to be configured). - @addisonschultz
 
 #### pill.tsx
 
-- [ ] Fix sizing of Icon inside the Pill component.
+- [ ] Fix sizing of Icon inside the Pill component. - @ikettles
 
 #### popover.tsx
 
-- [ ] Fix and update Popover to be more robust and easier to use.
+- [ ] Fix and update Popover to be more robust and easier to use. - @fhur
 
 #### progress.tsx
 
-- [ ] Start Progress bar(s).
+- [ ] Start Progress bar(s). - @addisonschultz
 
 #### radio.tsx
 
-- Find out what Visual Picker variant does to the Radio Component?
+- Find out what Visual Picker variant does to the Radio Component? - @ikettles
 
 #### slider.tsx
 
-- [ ] Add useState hook to slider.tsx to control displayed value as slider updates.
+- [ ] Add useState hook to slider.tsx to control displayed value as slider updates. - @addisonschultz
 
 #### tabs.tsx
 
-- [ ] Make tabs more user friendly instead of hardcoding the items that need to be added.
+- [ ] Make tabs more user friendly instead of hardcoding the items that need to be added. - @ikettles
 
 #### tooltip.tsx
 
-- [ ] Why doesn't tooltip open on hover?
+- [ ] Why doesn't tooltip open on hover? - @addisonschultz
 
 #### verticalnavigation.tsx
 
-- [ ] Make Vertical Navigation more user friendly + add better content (more dynamic) instead of hardcoding the items that need to be added.
+- [ ] Make Vertical Navigation more user friendly + add better content (more dynamic) instead of hardcoding the items that need to be added. - @fhur
 
 ### Notes
 
