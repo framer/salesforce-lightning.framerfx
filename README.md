@@ -67,7 +67,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 #### slider.tsx
 
-- [ ] Add useState hook to slider.tsx to control displayed value as slider updates. - @addisonschultz
+- [x] Add useState hook to slider.tsx to control displayed value as slider updates. - @addisonschultz
 
 #### tabs.tsx
 

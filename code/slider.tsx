@@ -10,10 +10,18 @@ const style: React.CSSProperties = {
 };
 
 const InnerSlider = props => {
+  const [value, setValue] = React.useState(0);
+
+  function handleChange(event, { value }) {
+    setValue(value);
+  }
+
   return (
     <System.Slider
       {...props}
       style={style}
+      value={value}
+      onChange={handleChange}
       errorText={props.error && props.myErrorText}
     />
   );
@@ -50,14 +58,26 @@ addPropertyControls(Slider, {
     defaultValue: "Slider Label",
     type: ControlType.String
   },
-  max: { title: "Max", defaultValue: 100, type: ControlType.Number },
-  min: { title: "Min", defaultValue: 0, type: ControlType.Number },
+  max: {
+    title: "Max",
+    defaultValue: 100,
+    type: ControlType.Number,
+    min: -100,
+    max: 100
+  },
+  min: {
+    title: "Min",
+    defaultValue: 0,
+    type: ControlType.Number,
+    min: -100,
+    max: 100
+  },
   size: {
     title: "Size",
     defaultValue: "medium",
     type: ControlType.Enum,
     options: ["x-small", "small", "medium", "large"],
-    optionTitles: ["x Small", "Small", "Medium", "Large"]
+    optionTitles: ["X Small", "Small", "Medium", "Large"]
   },
   step: {
     title: "Step",
