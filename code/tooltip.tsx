@@ -9,7 +9,14 @@ const style: React.CSSProperties = {
 };
 
 const InnerTooltip = props => {
-  return <System.Tooltip {...props} style={style} />;
+  return (
+    <System.Tooltip
+      {...props}
+      style={style}
+      id={"tooltip"}
+      isOpen={props.isOpen === false ? undefined : props.isOpen}
+    />
+  );
 };
 
 export const Tooltip = withHOC(InnerTooltip);
@@ -39,18 +46,18 @@ addPropertyControls(Tooltip, {
       "left bottom"
     ],
     optionTitles: [
-      "top",
-      "top left",
-      "top right",
-      "right",
-      "right top",
-      "right bottom",
-      "bottom",
-      "bottom left",
-      "bottom right",
-      "left",
-      "left top",
-      "left bottom"
+      "Top",
+      "Top Left",
+      "Top Right",
+      "Right",
+      "Right Top",
+      "Right Bottom",
+      "Bottom",
+      "Bottom Left",
+      "Bottom Right",
+      "Left",
+      "Left Top",
+      "Left Bottom"
     ]
   },
   hoverCloseDelay: {
