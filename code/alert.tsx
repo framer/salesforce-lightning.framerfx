@@ -56,7 +56,11 @@ addPropertyControls(Alert, {
     title: "Heading Link",
     defaultValue: "More information"
   },
-  icon: { title: "Icon", defaultValue: false, type: ControlType.Boolean },
+  icon: {
+    title: "Custom Icon",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   variant: {
     type: ControlType.Enum,
     title: "Variant",

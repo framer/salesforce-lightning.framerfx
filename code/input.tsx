@@ -21,6 +21,28 @@ const InnerInput = props => {
     <System.Input
       {...props}
       style={style}
+      iconLeft={
+        props.leftIcon && (
+          <System.InputIcon
+            assistiveText={{
+              icon: "Left Icon"
+            }}
+            name={props.leftIconName}
+            category={props.leftIconCategory}
+          />
+        )
+      }
+      iconRight={
+        props.rightIcon && (
+          <System.InputIcon
+            assistiveText={{
+              icon: "Right Icon"
+            }}
+            name={props.rightIconName}
+            category={props.rightIconCategory}
+          />
+        )
+      }
       errorText={props.error && props.myErrorText}
       onChange={onChange}
     />
@@ -35,100 +57,6 @@ Input.defaultProps = {
 };
 
 addPropertyControls(Input, {
-  disabled: {
-    title: "Disabled",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  error: {
-    type: ControlType.Boolean,
-    title: "Error",
-    defaultValue: false,
-    enabledTitle: "True",
-    disabledTitle: "False"
-  },
-  myErrorText: {
-    title: "ErrorText",
-    defaultValue: "Error Message",
-    type: ControlType.String,
-    hidden(props) {
-      return props.error === false;
-    }
-  },
-  hasSpinner: {
-    title: "HasSpinner",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  fixedTextLeft: {
-    type: ControlType.String,
-    title: "Left Text",
-    defaultValue: ""
-  },
-
-  fixedTextRight: {
-    type: ControlType.String,
-    title: "Right Text",
-    defaultValue: ""
-  },
-  // iconLeft: {
-  //   title: "IconLeft",
-  //   defaultValue: false,
-  //   type: ControlType.Boolean
-  // },
-  // iconRight: {
-  //   title: "IconRight",
-  //   defaultValue: false,
-  //   type: ControlType.Boolean
-  // },
-  inlineHelpText: {
-    title: "InlineHelpText",
-    defaultValue: "ex: (415) 111-2222",
-    type: ControlType.String
-  },
-  label: { title: "Label", defaultValue: "My Label", type: ControlType.String },
-  placeholder: {
-    title: "Placeholder",
-    defaultValue: "Type here...",
-    type: ControlType.String
-  },
-  minLength: {
-    title: "MinLength",
-    defaultValue: "0",
-    type: ControlType.String
-  },
-  maxLength: {
-    title: "MaxLength",
-    defaultValue: "30",
-    type: ControlType.String
-  },
-  minValue: {
-    title: "MinValue",
-    defaultValue: -10,
-    type: ControlType.Number
-  },
-  maxValue: {
-    title: "MaxValue",
-    defaultValue: 10,
-    type: ControlType.Number
-  },
-  readOnly: {
-    title: "ReadOnly",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  required: {
-    title: "Required",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  step: {
-    title: "Step",
-    defaultValue: 1,
-    type: ControlType.Number,
-    displayStepper: true,
-    step: 1
-  },
   type: {
     title: "Type",
     defaultValue: "text",
@@ -150,21 +78,166 @@ addPropertyControls(Input, {
       "color"
     ],
     optionTitles: [
-      "text",
-      "password",
-      "datetime",
-      "datetime-local",
-      "date",
-      "month",
-      "time",
-      "week",
-      "number",
-      "email",
-      "url",
-      "search",
-      "tel",
-      "color"
+      "Text",
+      "Password",
+      "Datetime",
+      "Datetime-local",
+      "Date",
+      "Month",
+      "Time",
+      "Week",
+      "Number",
+      "Email",
+      "Url",
+      "Search",
+      "Tel",
+      "Color"
     ]
+  },
+  label: { title: "Label", defaultValue: "My Label", type: ControlType.String },
+  placeholder: {
+    title: "Placeholder",
+    defaultValue: "Type here...",
+    type: ControlType.String
+  },
+  inlineHelpText: {
+    title: "InlineHelpText",
+    defaultValue: "ex: (415) 111-2222",
+    type: ControlType.String
+  },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  error: {
+    type: ControlType.Boolean,
+    title: "Error",
+    defaultValue: false,
+    enabledTitle: "True",
+    disabledTitle: "False"
+  },
+  myErrorText: {
+    title: "ErrorText",
+    defaultValue: "Error Message",
+    type: ControlType.String,
+    hidden(props) {
+      return props.error === false;
+    }
+  },
+  required: {
+    title: "Required",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  hasSpinner: {
+    title: "HasSpinner",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  leftIcon: {
+    title: "Left Icon",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  leftIconName: {
+    type: ControlType.String,
+    title: "L Icon Name",
+    defaultValue: "search",
+    hidden(props) {
+      return props.leftIcon === false;
+    }
+  },
+  leftIconCategory: {
+    type: ControlType.String,
+    title: "L Icon Category",
+    defaultValue: "utility",
+    hidden(props) {
+      return props.leftIcon === false;
+    }
+  },
+  rightIcon: {
+    title: "Right Icon",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  rightIconName: {
+    type: ControlType.String,
+    title: "R Icon Name",
+    defaultValue: "search",
+    hidden(props) {
+      return props.rightIcon === false;
+    }
+  },
+  rightIconCategory: {
+    type: ControlType.String,
+    title: "R Icon Category",
+    defaultValue: "utility",
+    hidden(props) {
+      return props.rightIcon === false;
+    }
+  },
+  advancedOptions: {
+    type: ControlType.Boolean,
+    title: "Advanced Options",
+    defaultValue: false,
+    enabledTitle: "Show",
+    disabledTitle: "Hide"
+  },
+  fixedTextLeft: {
+    type: ControlType.String,
+    title: "Left Text",
+    defaultValue: "",
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  fixedTextRight: {
+    type: ControlType.String,
+    title: "Right Text",
+    defaultValue: "",
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  minLength: {
+    title: "MinLength",
+    defaultValue: "0",
+    type: ControlType.String,
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  maxLength: {
+    title: "MaxLength",
+    defaultValue: "30",
+    type: ControlType.String,
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  minValue: {
+    title: "MinValue",
+    defaultValue: -10,
+    type: ControlType.Number,
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  maxValue: {
+    title: "MaxValue",
+    defaultValue: 10,
+    type: ControlType.Number,
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
+  },
+  readOnly: {
+    title: "ReadOnly",
+    defaultValue: false,
+    type: ControlType.Boolean,
+    hidden(props) {
+      return props.advancedOptions === false;
+    }
   }
-  // value: { title: "Value", defaultValue: false, type: ControlType.Boolean },
 });

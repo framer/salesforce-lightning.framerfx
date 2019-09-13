@@ -671,6 +671,7 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/input.tsx_Input",
             "codeComponentProps" : {
+              "advancedOptions" : true,
               "disabled" : false,
               "error" : false,
               "fixedTextLeft" : "",
@@ -678,6 +679,9 @@
               "hasSpinner" : false,
               "inlineHelpText" : "",
               "label" : "Password",
+              "leftIcon" : false,
+              "leftIconCategory" : "utility",
+              "leftIconName" : "search",
               "maxLength" : "30",
               "maxValue" : 10,
               "minLength" : "0",
@@ -686,7 +690,9 @@
               "placeholder" : "",
               "readOnly" : false,
               "required" : false,
-              "step" : 1,
+              "rightIcon" : false,
+              "rightIconCategory" : "utility",
+              "rightIconName" : "search",
               "type" : "password"
             },
             "codeOverrideEnabled" : false,
@@ -740,6 +746,7 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/input.tsx_Input",
             "codeComponentProps" : {
+              "advancedOptions" : true,
               "disabled" : false,
               "error" : false,
               "fixedTextLeft" : "",
@@ -747,6 +754,9 @@
               "hasSpinner" : false,
               "inlineHelpText" : "",
               "label" : "Username",
+              "leftIcon" : false,
+              "leftIconCategory" : "utility",
+              "leftIconName" : "search",
               "maxLength" : "30",
               "maxValue" : 10,
               "minLength" : "0",
@@ -755,7 +765,9 @@
               "placeholder" : "",
               "readOnly" : false,
               "required" : false,
-              "step" : 1,
+              "rightIcon" : false,
+              "rightIconCategory" : "utility",
+              "rightIconName" : "search",
               "type" : "text"
             },
             "codeOverrideEnabled" : true,
@@ -847,7 +859,6 @@
             "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
             "navigationTransitionDirection" : "left",
             "opacity" : 1,
-            "originalFilename" : "salesforce.png",
             "originalid" : null,
             "parentid" : "GOjRhigWy",
             "previewSettings" : null,
@@ -954,9 +965,7 @@
             "top" : null,
             "visible" : true,
             "width" : 210,
-            "widthType" : 0,
-            "x" : 282,
-            "y" : 864
+            "widthType" : 0
           },
           {
             "__class" : "TextNode",
@@ -1046,9 +1055,7 @@
             "top" : null,
             "visible" : true,
             "width" : 32,
-            "widthType" : 0,
-            "x" : 282,
-            "y" : 864
+            "widthType" : 0
           },
           {
             "__class" : "FrameNode",
@@ -1147,9 +1154,7 @@
                 "top" : 75,
                 "visible" : true,
                 "width" : 278,
-                "widthType" : 0,
-                "x" : 123,
-                "y" : 50
+                "widthType" : 0
               },
               {
                 "__class" : "TextNode",
@@ -1275,9 +1280,7 @@
                 "top" : 99,
                 "visible" : true,
                 "width" : 530,
-                "widthType" : 0,
-                "x" : 123,
-                "y" : 119
+                "widthType" : 0
               },
               {
                 "__class" : "CodeComponentNode",
@@ -1379,7 +1382,6 @@
             "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
             "navigationTransitionDirection" : "left",
             "opacity" : 1,
-            "originalFilename" : "salesforceIllustration.png",
             "originalid" : null,
             "parentid" : "GOjRhigWy",
             "previewSettings" : null,
@@ -1579,9 +1581,7 @@
                 "top" : 66,
                 "visible" : true,
                 "width" : 144,
-                "widthType" : 0,
-                "x" : 91,
-                "y" : 82
+                "widthType" : 0
               },
               {
                 "__class" : "TextNode",
@@ -1674,9 +1674,7 @@
                 "top" : 137,
                 "visible" : true,
                 "width" : 262,
-                "widthType" : 0,
-                "x" : 228,
-                "y" : 89
+                "widthType" : 0
               },
               {
                 "__class" : "TextNode",
@@ -1766,9 +1764,7 @@
                 "top" : 351,
                 "visible" : true,
                 "width" : 308,
-                "widthType" : 0,
-                "x" : 52,
-                "y" : 265
+                "widthType" : 0
               },
               {
                 "__class" : "CodeComponentNode",
@@ -1877,7 +1873,6 @@
                 "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
                 "navigationTransitionDirection" : "left",
                 "opacity" : 1,
-                "originalFilename" : "salesforce.png",
                 "originalid" : null,
                 "parentid" : "PrqfJc30Y",
                 "previewSettings" : null,
@@ -2471,6 +2466,81 @@
         "top" : 151,
         "visible" : true,
         "width" : 1440,
+        "widthType" : 0
+      },
+      {
+        "__class" : "CodeComponentNode",
+        "aspectRatio" : null,
+        "bottom" : null,
+        "centerAnchorX" : 0.83125000000000004,
+        "centerAnchorY" : 0.98444444444444446,
+        "children" : [
+
+        ],
+        "clip" : true,
+        "codeComponentIdentifier" : ".\/input.tsx_Input",
+        "codeComponentProps" : {
+          "advancedOptions" : false,
+          "disabled" : false,
+          "error" : false,
+          "fixedTextLeft" : "",
+          "fixedTextRight" : "",
+          "hasSpinner" : false,
+          "inlineHelpText" : "ex: (415) 111-2222",
+          "label" : "My Label",
+          "leftIcon" : false,
+          "leftIconCategory" : "utility",
+          "leftIconName" : "search",
+          "maxLength" : "30",
+          "maxValue" : 10,
+          "minLength" : "0",
+          "minValue" : -10,
+          "myErrorText" : "Error Message",
+          "placeholder" : "Type here...",
+          "readOnly" : false,
+          "required" : false,
+          "rightIcon" : false,
+          "rightIconCategory" : "utility",
+          "rightIconName" : "search",
+          "type" : "text"
+        },
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : false,
+        "fillImage" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "height" : 100,
+        "heightType" : 0,
+        "id" : "XHayPUfCr",
+        "intrinsicHeight" : 100,
+        "intrinsicWidth" : 300,
+        "left" : 1185,
+        "locked" : false,
+        "name" : null,
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "aQaB3KyoX",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 1227,
+        "visible" : true,
+        "width" : 374,
         "widthType" : 0
       }
     ],
