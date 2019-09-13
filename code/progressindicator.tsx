@@ -13,7 +13,28 @@ const InnerProgress = props => {
     return { id: index, label: step };
   });
 
-  return <System.ProgressIndicator {...props} style={style} steps={steps} />;
+  const [state, setState] = React.useState({
+    completedSteps: [],
+    selectedStep: steps[0]
+  });
+
+  const handleStepEvent = (event, data) => {
+    setState({
+      completedSteps: steps.slice(0, data.step.id),
+      selectedStep: data.step
+    });
+  };
+
+  return (
+    <System.ProgressIndicator
+      {...props}
+      style={style}
+      steps={steps}
+      completedSteps={state.completedSteps}
+      selectedStep={state.selectedStep}
+      onStepClick={handleStepEvent}
+    />
+  );
 };
 
 export const ProgressIndicator = withHOC(InnerProgress);
