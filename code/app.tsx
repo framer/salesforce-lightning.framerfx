@@ -20,16 +20,6 @@ App.defaultProps = {
 };
 
 addPropertyControls(App, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  ariaHideApp: {
-    title: "AriaHideApp",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   children: {
     title: "Children",
     defaultValue: false,
