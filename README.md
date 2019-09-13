@@ -6,6 +6,7 @@ A repository to hold components from [Salesforce Lightning Design System](https:
 
 There were a few components left out for the first pass, ones that aren't so core to the Lightning Design System. Let's foucs on completing the tasks/components above before moving onto the ones below.
 
+- Removed App Launcher for first pass
 - Removed Builder Header for first pass
 - Removed Filters for first pass
 - Removed Expression for first pass
