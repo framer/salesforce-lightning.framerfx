@@ -72,17 +72,5 @@ addPropertyControls(Checkbox, {
     title: "Required",
     defaultValue: false,
     type: ControlType.Boolean
-  },
-  vertical: {
-    title: "Vertical",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
-  size: {
-    title: "Size",
-    defaultValue: "medium",
-    type: ControlType.Enum,
-    options: ["medium", "large"],
-    optionTitles: ["Medium", "Large"]
   }
 });
