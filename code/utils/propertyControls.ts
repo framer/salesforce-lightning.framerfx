@@ -6,9 +6,11 @@ export function generateIconPropertyControls(
     defaultIconCategory?: string;
     defaultIconName?: string;
     defaultIconSize?: string;
+    defaultAssistiveText?: string;
+    omittedProperties?: string[];
   } = {}
 ): PropertyControls {
-  return {
+  const properties: PropertyControls = {
     category: {
       type: ControlType.String,
       title: "Category",
@@ -32,8 +34,19 @@ export function generateIconPropertyControls(
     assistiveText: {
       type: ControlType.String,
       title: "Assistive Text",
-      defaultValue: "SLDS Icon",
+      defaultValue: options.defaultAssistiveText || "SLDS Icon",
       hidden: options.hidden
     }
   };
+
+  if (!!options.omittedProperties) {
+    return Object.keys(properties).reduce<PropertyControls>((acc, key) => {
+      if (options.omittedProperties.indexOf(key) === -1) {
+        acc[key] = properties[key];
+      }
+      return acc;
+    }, {});
+  }
+
+  return properties;
 }

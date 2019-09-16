@@ -56,11 +56,6 @@ addPropertyControls(Alert, {
     title: "Heading Link",
     defaultValue: "More information"
   },
-  icon: {
-    title: "Custom Icon",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   variant: {
     type: ControlType.Enum,
     title: "Variant",
@@ -68,5 +63,15 @@ addPropertyControls(Alert, {
     optionTitles: ["Error", "Info", "Offline", "Warning"],
     defaultValue: "info"
   },
-  ...generateIconPropertyControls({ hidden: props => props.icon === false })
+  icon: {
+    title: "Custom Icon",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  ...generateIconPropertyControls({
+    hidden: props => props.icon === false,
+    defaultIconCategory: "utility",
+    defaultIconName: "user",
+    omittedProperties: ["assistiveText", "size"]
+  })
 });
