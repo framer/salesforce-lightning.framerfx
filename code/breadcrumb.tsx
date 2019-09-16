@@ -48,11 +48,6 @@ Breadcrumb.defaultProps = {
 };
 
 addPropertyControls(Breadcrumb, {
-  assistiveText: {
-    title: "AssistiveText",
-    defaultValue: false,
-    type: ControlType.Boolean
-  },
   overflowDropdownMenu: {
     title: "OverflowDropdownMenu",
     defaultValue: false,

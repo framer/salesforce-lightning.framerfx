@@ -34,6 +34,7 @@ const InnerCard = props => {
   return (
     <div className="slds-grid slds-grid_vertical">
       <System.Card
+        {...props}
         filter={
           (!isEmpty || state.isFiltering) && (
             <System.CardFilter onChange={handleFilterChange} />
@@ -113,8 +114,10 @@ addPropertyControls(Card, {
     }
   },
   ...generateIconPropertyControls({
+    hidden: props => props.hasNoHeader === true,
     defaultIconCategory: "standard",
     defaultIconName: "document",
-    defaultIconSize: "small"
+    defaultIconSize: "small",
+    omittedProperties: ["assistiveText"]
   })
 });

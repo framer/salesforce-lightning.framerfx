@@ -44,7 +44,6 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/card.tsx_Card",
                 "codeComponentProps" : {
-                  "assistiveText" : "SLDS Icon",
                   "buttonLabel" : "Related Items",
                   "cardItems" : [
                     {
