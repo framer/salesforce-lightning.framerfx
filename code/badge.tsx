@@ -13,7 +13,7 @@ const InnerBadge = props => {
           <System.Icon
             category={props.category}
             name={props.name}
-            size={props.size}
+            size={"xx-small"}
             assistiveText={{ label: props.assistiveText }}
           />
         ) : null
@@ -53,5 +53,10 @@ addPropertyControls(Badge, {
       return props.icon === false;
     }
   },
-  ...generateIconPropertyControls({ hidden: props => props.icon === false })
+  ...generateIconPropertyControls({
+    hidden: props => props.icon === false,
+    defaultIconCategory: "utility",
+    defaultIconName: "moneybag",
+    omittedProperties: ["size", "assistiveText"]
+  })
 });

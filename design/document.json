@@ -2519,7 +2519,7 @@
         "isExternalMaster" : null,
         "isMaster" : false,
         "isTarget" : false,
-        "left" : 70,
+        "left" : -120,
         "locked" : false,
         "name" : null,
         "navigationTarget" : null,
@@ -2540,7 +2540,7 @@
         "replicaInfo" : null,
         "right" : null,
         "rotation" : 0,
-        "top" : 1657,
+        "top" : 1689,
         "visible" : true,
         "width" : 1440,
         "widthType" : 0

@@ -8,8 +8,22 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerBrand: React.SFC = props => {
-  return <System.BrandBand {...props} style={style} />;
+const InnerBrand = props => {
+  return (
+    <System.BrandBand
+      {...props}
+      style={style}
+      className={`slds-p-around_${props.headerPadding}`}
+    >
+      {props.header && (
+        <div className="slds-box slds-theme_default">
+          <h3 className="slds-text-heading_label slds-truncate">
+            {props.headerText}
+          </h3>
+        </div>
+      )}
+    </System.BrandBand>
+  );
 };
 
 export const Brand = withHOC(InnerBrand);
@@ -20,6 +34,31 @@ Brand.defaultProps = {
 };
 
 addPropertyControls(Brand, {
+  header: {
+    type: ControlType.Boolean,
+    title: "Header",
+    defaultValue: true,
+    enabledTitle: "Show",
+    disabledTitle: "Hide"
+  },
+  headerText: {
+    type: ControlType.String,
+    title: "Header Text",
+    defaultValue: "My App",
+    hidden(props) {
+      return props.header === false;
+    }
+  },
+  headerPadding: {
+    type: ControlType.Enum,
+    title: "Header Padding",
+    options: ["small", "medium", "large"],
+    optionTitles: ["Small", "Medium", "Large"],
+    defaultValue: "small",
+    hidden(props) {
+      return props.header === false;
+    }
+  },
   image: {
     title: "Image",
     defaultValue: "default",
