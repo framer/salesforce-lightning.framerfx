@@ -44,19 +44,31 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/card.tsx_Card",
                 "codeComponentProps" : {
-                  "bodyClassName" : false,
-                  "children" : false,
-                  "className" : false,
-                  "empty" : false,
-                  "filter" : false,
-                  "footer" : false,
+                  "assistiveText" : "SLDS Icon",
+                  "buttonLabel" : "Related Items",
+                  "cardItems" : [
+                    {
+                      "enabled" : true,
+                      "type" : "string",
+                      "value" : "Cloudhub"
+                    },
+                    {
+                      "enabled" : true,
+                      "type" : "string",
+                      "value" : "Cloudhub + Anypoint Connectors"
+                    },
+                    {
+                      "enabled" : true,
+                      "type" : "string",
+                      "value" : "Cloud City"
+                    }
+                  ],
+                  "category" : "action",
+                  "emptyHeading" : "No Related Items",
                   "hasNoHeader" : false,
-                  "header" : false,
-                  "headerActions" : false,
-                  "heading" : false,
-                  "icon" : false,
-                  "id" : false,
-                  "style" : false
+                  "heading" : "Related Items",
+                  "name" : "add_contact",
+                  "size" : "medium"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -2464,6 +2476,147 @@
         "right" : null,
         "rotation" : 0,
         "top" : 151,
+        "visible" : true,
+        "width" : 1440,
+        "widthType" : 0
+      },
+      {
+        "__class" : "FrameNode",
+        "aspectRatio" : null,
+        "blendingEnabled" : 0,
+        "blendingMode" : "normal",
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+          {
+            "__class" : "CodeComponentNode",
+            "aspectRatio" : null,
+            "bottom" : null,
+            "centerAnchorX" : 0.2902777777777778,
+            "centerAnchorY" : 0.24111111111111111,
+            "children" : [
+
+            ],
+            "clip" : true,
+            "codeComponentIdentifier" : ".\/card.tsx_Card",
+            "codeComponentProps" : {
+              "assistiveText" : "SLDS Icon",
+              "buttonLabel" : "Delete All Items",
+              "cardItems" : [
+                {
+                  "enabled" : true,
+                  "type" : "string",
+                  "value" : "Cloudhub"
+                },
+                {
+                  "enabled" : true,
+                  "type" : "string",
+                  "value" : "Cloudhub + Anypoint Connectors"
+                },
+                {
+                  "enabled" : true,
+                  "type" : "string",
+                  "value" : "Cloud City"
+                }
+              ],
+              "category" : "standard",
+              "emptyHeading" : "No Related Items",
+              "hasNoHeader" : false,
+              "heading" : "Related Items",
+              "name" : "document",
+              "size" : "small"
+            },
+            "codeOverrideEnabled" : false,
+            "constraintsLocked" : false,
+            "deviceType" : null,
+            "exportOptions" : [
+
+            ],
+            "fillColor" : "rgba(255,255,255,1)",
+            "fillEnabled" : false,
+            "fillImage" : null,
+            "fillImagePixelHeight" : null,
+            "fillImagePixelWidth" : null,
+            "fillImageResize" : "fill",
+            "fillType" : "color",
+            "height" : 300,
+            "heightType" : 0,
+            "id" : "XiNsrDIR3",
+            "intrinsicHeight" : 300,
+            "intrinsicWidth" : 700,
+            "left" : 68,
+            "locked" : false,
+            "name" : null,
+            "opacity" : 1,
+            "originalid" : null,
+            "parentid" : "Kj54YdxmU",
+            "previewSettings" : null,
+            "radius" : 0,
+            "radiusBottomLeft" : 0,
+            "radiusBottomRight" : 0,
+            "radiusIsRelative" : false,
+            "radiusPerCorner" : false,
+            "radiusTopLeft" : 0,
+            "radiusTopRight" : 0,
+            "right" : null,
+            "rotation" : 0,
+            "top" : 67,
+            "visible" : true,
+            "width" : 700,
+            "widthType" : 0
+          }
+        ],
+        "clip" : true,
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : "framer\/FramerAppleMacBookPro",
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : true,
+        "fillImage" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "guidesX" : [
+
+        ],
+        "guidesY" : [
+
+        ],
+        "height" : 900,
+        "heightType" : 0,
+        "id" : "Kj54YdxmU",
+        "intrinsicHeight" : null,
+        "intrinsicWidth" : null,
+        "isExternalMaster" : null,
+        "isMaster" : false,
+        "isTarget" : false,
+        "left" : 70,
+        "locked" : false,
+        "name" : null,
+        "navigationTarget" : null,
+        "navigationTransition" : "push",
+        "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
+        "navigationTransitionDirection" : "left",
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "aQaB3KyoX",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "replicaInfo" : null,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 1657,
         "visible" : true,
         "width" : 1440,
         "widthType" : 0

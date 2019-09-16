@@ -2,55 +2,119 @@ import * as React from "react";
 import * as System from "@salesforce/design-system-react";
 import { ControlType, addPropertyControls } from "framer";
 import { withHOC } from "./withHOC";
+import { generateIconPropertyControls } from "./utils/propertyControls";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+const InnerCard = props => {
+  const sampleItems = props.cardItems.map((item, index) => {
+    return { id: index, name: item };
+  });
 
-const InnerCard: React.SFC = props => {
-  return <System.Card {...props} style={style} />;
+  const [state, setState] = React.useState({
+    items: sampleItems,
+    isFiltering: false
+  });
+
+  const handleFilterChange = event => {
+    const filteredItems = sampleItems.filter(item =>
+      RegExp(event.target.value, "i").test(item.name)
+    );
+    setState({ isFiltering: true, items: filteredItems });
+  };
+
+  const handleDeleteAllItems = () => {
+    setState({ isFiltering: false, items: [] });
+  };
+
+  const handleAddItem = () => {
+    console.log("Add item");
+  };
+
+  const isEmpty = state.items.length === 0;
+
+  return (
+    <div className="slds-grid slds-grid_vertical">
+      <System.Card
+        filter={
+          (!isEmpty || state.isFiltering) && (
+            <System.CardFilter onChange={handleFilterChange} />
+          )
+        }
+        headerActions={
+          !isEmpty && (
+            <System.Button
+              label={props.buttonLabel}
+              onClick={handleDeleteAllItems}
+            />
+          )
+        }
+        heading={props.heading}
+        icon={
+          <System.Icon
+            category={props.category}
+            name={props.name}
+            size={props.size}
+            assistiveText={{ label: props.assistiveText }}
+          />
+        }
+        empty={
+          isEmpty ? (
+            <System.CardEmpty heading={props.emptyHeading}>
+              <System.Button label="Add Item" onClick={handleAddItem} />
+            </System.CardEmpty>
+          ) : null
+        }
+      >
+        <System.DataTable items={state.items}>
+          <System.DataTableColumn
+            label="Opportunity Name"
+            property="name"
+            truncate
+          />
+        </System.DataTable>
+      </System.Card>
+    </div>
+  );
 };
 
 export const Card = withHOC(InnerCard);
 
 Card.defaultProps = {
-  width: 150,
-  height: 50
+  width: 700,
+  height: 300
 };
 
 addPropertyControls(Card, {
-  bodyClassName: {
-    title: "BodyClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+  heading: {
+    type: ControlType.String,
+    title: "Heading",
+    defaultValue: "Related Items"
   },
-  children: {
-    title: "Children",
-    defaultValue: false,
-    type: ControlType.Boolean
+  buttonLabel: {
+    type: ControlType.String,
+    title: "Button Label",
+    defaultValue: "Delete All Items"
   },
-  className: {
-    title: "ClassName",
-    defaultValue: false,
-    type: ControlType.Boolean
+  emptyHeading: {
+    type: ControlType.String,
+    title: "Empty Heading",
+    defaultValue: "No Related Items"
   },
-  empty: { title: "Empty", defaultValue: false, type: ControlType.Boolean },
-  filter: { title: "Filter", defaultValue: false, type: ControlType.Boolean },
-  footer: { title: "Footer", defaultValue: false, type: ControlType.Boolean },
   hasNoHeader: {
     title: "HasNoHeader",
     defaultValue: false,
     type: ControlType.Boolean
   },
-  header: { title: "Header", defaultValue: false, type: ControlType.Boolean },
-  heading: { title: "Heading", defaultValue: false, type: ControlType.Boolean },
-  headerActions: {
-    title: "HeaderActions",
-    defaultValue: false,
-    type: ControlType.Boolean
+  cardItems: {
+    type: ControlType.Array,
+    title: "Card Items",
+    defaultValue: ["Cloudhub", "Cloudhub + Anypoint Connectors", "Cloud City"],
+    propertyControl: {
+      type: ControlType.String
+    }
   },
-  icon: { title: "Icon", defaultValue: false, type: ControlType.Boolean },
-  id: { title: "Id", defaultValue: false, type: ControlType.Boolean },
-  style: { title: "Style", defaultValue: false, type: ControlType.Boolean }
+  ...generateIconPropertyControls({
+    defaultIconCategory: "standard",
+    defaultIconName: "document",
+    defaultIconSize: "small"
+  })
 });

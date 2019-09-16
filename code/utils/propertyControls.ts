@@ -5,6 +5,7 @@ export function generateIconPropertyControls(
     hidden?: (props: any) => boolean;
     defaultIconCategory?: string;
     defaultIconName?: string;
+    defaultIconSize?: string;
   } = {}
 ): PropertyControls {
   return {
@@ -25,7 +26,7 @@ export function generateIconPropertyControls(
       title: "Size",
       options: ["xx-small", "x-small", "small", "medium", "large"],
       optionTitles: ["XX-Small", "X-Small", "Small", "Medium", "Large"],
-      defaultValue: "medium",
+      defaultValue: options.defaultIconSize || "medium",
       hidden: options.hidden
     },
     assistiveText: {
