@@ -1,0 +1,20 @@
+{
+  "expandedPanels": {},
+  "items": [
+    {
+      "id": "1",
+      "summary": "JSON Summary 1",
+      "details": "Accordion details - A"
+    },
+    {
+      "id": "2",
+      "summary": "JSON Summary 2",
+      "details": "Accordion details - B"
+    },
+    {
+      "id": "3",
+      "summary": "JSON Summary 3",
+      "details": "Accordion details - C"
+    }
+  ]
+}
