@@ -57,12 +57,6 @@ const InnerAccordion = props => {
         }
       ]
     });
-    if (this.props.action) {
-      const dataAsArray = Object.keys(data).map(id => data[id]);
-      this.props.action("onClick")(event, ...dataAsArray);
-    } else if (console) {
-      console.log("[onSelect] (event, data)", event, data);
-    }
   }
 
   return (

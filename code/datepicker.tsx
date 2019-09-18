@@ -9,8 +9,6 @@ const style: React.CSSProperties = {
 };
 
 const InnerDate: React.SFC = props => {
-  console.log(System.Datepicker);
-
   return (
     <System.Datepicker
       {...props}
